@@ -1,0 +1,295 @@
+/*Varáveis*/ /* Define variáveis globais reutilizáveis */
+
+:root {
+    --primary: #d81900d8; /* Cor principal (vermelho da marca) */
+    --primary-hover: #e00303; /* Cor quando passa o mouse */
+
+    --bg-main: #021518; /* Fundo principal escuro */
+    --bg-alt: #f3f4f6; /* Fundo alternativo claro */
+    --surface: #fff; /* Cor de superfícies (cards) */
+    --text-main: #ffffff; /* Cor principal do texto */
+    --text-muted: #6b7280; /* Texto secundário */
+
+    --border: #021518; /* Cor de bordas */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); /* Sombra padrão */
+    --radius: 8px; /* Bordas arredondadas padrão */
+}
+
+* {
+    margin: 0; /* Remove margem padrão de todos elementos */
+    padding: 0; /* Remove padding padrão */
+    box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+}
+
+html {
+    scroll-behavior: smooth; /* Faz rolagem suave ao clicar em links */
+}
+
+body {
+    font-family: 'Titillium Web', sans-serif; /* Fonte principal */
+    background-color: var(--bg-main); /* Cor de fundo */
+    color: var(--text-main); /* Cor do texto */
+    line-height: 1.6; /* Espaçamento entre linhas */
+    transition: background-color 0.5s, color 0.5s; /* Animação ao trocar tema */
+}
+
+a {
+    text-decoration: none; /* Remove sublinhado dos links */
+    color: inherit; /* Herda a cor do elemento pai */
+}
+
+.container {
+    width: 100%; /* Ocupa toda largura */
+    max-width: 1200px; /* Limita largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 0 24px; /* Espaço lateral */
+}
+
+ul {
+    list-style: none; /* Remove bolinhas da lista */
+}
+
+/*Estilo do cabeçalho*/
+.header {
+    background-color: var(--bg-main); /* Fundo do header */
+    border-bottom: 1px solid var(--border); /* Linha embaixo */
+    position: fixed; /* Fixa no topo */
+    top: 0; /* Encosta no topo */
+    left: 0; /* Encosta à esquerda */
+    right: 0; /* Encosta à direita */
+    height: 80px; /* Altura */
+    z-index: 1000; /* Fica acima dos outros elementos */
+}
+
+main {
+    padding-top: 80px; /* Evita conteúdo escondido atrás do header */
+}
+
+.header-container {
+    display: flex; /* Usa flexbox */
+    justify-content: space-between; /* Espaço entre itens */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100%; /* Ocupa altura total */
+}
+
+.logo img {
+    height: 230px;   /* Altura da imagem da logo */
+    width: auto;    /* Mantém proporção */
+}
+
+.nav-list {
+    display: flex; /* Itens lado a lado */
+    gap: 30px; /* Espaço entre links */
+}
+
+.nav-link {
+    font-weight: 600; /* Peso da fonte */
+    transition: color 0.5s; /* Animação suave */
+}
+
+.nav-link:hover {
+    color: var(--primary); /* Fica vermelho */
+    border-bottom: 2.5px solid var(--primary-hover); /* Linha embaixo */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-weight: 700; /* Fica mais grosso */
+    font-size: 16px; /* Aumenta levemente */
+}
+
+.header-social {
+    font-size: 20px; /* Tamanho dos ícones */
+    display: flex; /* Flexbox */
+    gap: 5px; /* Espaço entre ícones */
+}
+
+.header-social a {
+    display: flex; /* Centraliza conteúdo */
+    justify-content: center; /* Centro horizontal */
+    align-items: center; /* Centro vertical */
+
+    width: 40px; /* Largura */
+    height: 40px; /* Altura */
+
+    border: 2px solid white; /* Borda branca */
+    border-radius: 50%; /* Forma circular */
+
+    padding: 0; /* Remove deformação */
+}
+
+.header-social a:hover{
+    color: var(--primary); /* Ícone fica vermelho */
+    border-color:  var(--primary); /* Borda fica vermelha */
+}
+
+.header-actions {
+    display: flex; /* Flexbox */
+    align-items: center; /* Centraliza */
+    gap: 15px; /* Espaço entre itens */
+}
+
+.icon-btn {
+    background: none; /* Sem fundo */
+    border: none; /* Sem borda */
+    font-size: 1.5rem; /* Tamanho ícone */
+    color: var(--text-main); /* Cor */
+    cursor: pointer; /* Cursor de clique */
+    display: flex; /* Centraliza */
+    transition: color 0.5s; /* Animação */
+}
+
+.icon-btn:hover {
+    color: var(--primary); /* Fica vermelho */
+}
+
+#menu-btn {
+    display: none; /* Esconde no desktop */
+}
+
+/*Botões*/
+.btn {
+    display: inline-block; /* Permite padding e tamanho */
+    padding: 12px 24px; /* Espaçamento interno */
+    font-weight: 600; /* Semi-negrito */
+    border-radius: var(--radius); /* Bordas arredondadas */
+    text-align: center; /* Centraliza texto */
+    cursor: pointer; /* Cursor de clique */
+    border: none; /* Sem borda */
+    transition: all 0.5s ease; /* Anima tudo */
+}
+
+.btn-primary {
+    background-color: var(--primary); /* Fundo vermelho */
+    color: #fff; /* Texto branco */
+    font-family: 'Titillium Web', sans-serif; /* Fonte */
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover); /* Cor muda no hover */
+    transform: translateY(-2px); /* Sobe levemente */
+}
+
+/*BANNER ROTATIVO*/
+.hero{
+    position: relative; /* Base para posicionamento */
+    height: calc(100vh - 80px); /* Altura da tela menos header */
+    min-height: 500px; /* Altura mínima */
+    background-color: #000; /* Fundo preto */
+}
+
+.carousel{
+    position: relative; /* Referência */
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+}
+
+.carousel-slide{
+    position: absolute; /* Sobrepõe slides */
+    inset: 0; /* Ocupa todo espaço */
+    display: flex; /* Flexbox */
+    align-items: center; /* Centraliza vertical */
+    visibility: hidden; /* Esconde */
+    transition: opacity 0.8s ease; /* Animação */
+    opacity: 0; /* Invisível */
+}
+
+.carousel-slide.active{
+    opacity: 1; /* Mostra */
+    visibility: visible; /* Torna visível */
+}
+
+.carousel-bg{
+    position: absolute; /* Fundo */
+    inset: 0; /* Ocupa tudo */
+    width: 100%; /* Largura */
+    height: 100%; /* Altura */
+    object-fit: cover; /* Preenche sem distorcer */
+    filter : brightness(0.5); /* Escurece imagem */
+    z-index: 1; /* Atrás */
+}
+
+.carousel-content{
+    position: relative; /* Sobre a imagem */
+    z-index: 2; /* Fica na frente */
+    color: #fff; /* Texto branco */
+    max-width: 800px; /* Limita largura */
+}
+
+.carousel-content h1{
+    font-family: 'Titillium Web',sans-serif; /* Fonte */
+    font-size: clamp(2.5rem, 5vw, 4.5rem); /* Responsivo */
+    font-weight: 900; /* Bem forte */
+    line-height: 1.1; /* Altura da linha */
+    margin-bottom: 20px; /* Espaço abaixo */
+}
+
+.carousel-content p{
+    font-family: 'Inter',sans-serif; /* Fonte */
+    font-size: 1.25rem; /* Tamanho */
+    color: #cbd5e1; /* Cor suave */
+    margin-bottom: 40px; /* Espaço */
+}
+
+.carousel-control{
+    position: absolute; /* Posicionamento */
+    top: 50%; /* Meio vertical */
+    z-index: 3; /* Acima de tudo */
+    transform: translateY(-50%); /* Centraliza */
+    width: 50px; /* Largura */
+    height: 50px; /* Altura */
+    border-radius: 50%; /* Redondo */
+    border: none; /* Sem borda */
+    background: rgba(255, 255, 255, 0.1); /* Fundo transparente */
+    font-size: 2rem; /* Ícone grande */
+    color: #fff; /* Branco */
+    display: flex; /* Centraliza */
+    align-items: center; /* Centro vertical */
+    justify-content: center; /* Centro horizontal */
+    cursor: pointer; /* Clique */
+    transition: 0.3s; /* Animação */
+}
+
+.carousel-control.next {
+    right: 20px; /* Direita */
+}
+
+.carousel-control.prev {
+    left: 20px; /* Esquerda */
+}
+
+.carousel-control:hover{
+    background: var(--primary-hover); /* Fica vermelho */
+}
+
+/*RESPONSIVIDADE*/
+@media(max-width : 768px) {
+
+    #menu-btn {
+        display: flex; /* Mostra botão menu */
+    }
+
+    .d-none-mobile {
+        display: none; /* Esconde elementos */
+    }
+
+    .nav{
+        position: fixed; /* Menu fixo */
+        top: 70px; /* Abaixo do header */
+        right: -100%; /* Escondido */
+        width: 100%; /* Largura total */
+        height: calc(100vh - 80px); /* Altura */
+        background-color: var(--bg-main); /* Fundo */
+        transition: right 0.4s ease; /* Animação */
+        padding-top: 40px; /* Espaço */
+        border-top: 1px solid var(--border); /* Linha */
+    }
+
+    .nav-list{
+        flex-direction: column; /* Coluna */
+        align-items: center; /* Centraliza */
+        gap: 40px; /* Espaço */
+    }
+
+    .nav.active{
+        right: 0; /* Mostra menu */
+    }
+
+}

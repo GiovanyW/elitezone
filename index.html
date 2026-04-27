@@ -1,0 +1,115 @@
+<!DOCTYPE html> <!-- Define o tipo do documento como HTML5 -->
+<html lang="pt-br"> <!-- Define idioma da página como português do Brasil -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Permite acentuação e caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade em dispositivos móveis -->
+    <title>EliteZone</title> <!-- Título da aba do navegador -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Melhora o carregamento das fontes -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Permite conexão com servidor de fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet"> <!-- Importa várias fontes -->
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script> <!-- Biblioteca de ícones -->
+
+    <link rel="stylesheet" href="css/style.css"> <!-- Importa o CSS -->
+</head>
+
+<body>
+
+    <header class="header"> <!-- Cabeçalho fixo do site -->
+        <div class="container header-container"> <!-- Container para alinhar os itens do header -->
+
+            <a href="#" class="logo"> <!-- Logo clicável -->
+                <img src="img/Elitezone.png" alt="EliteZone"> <!-- Imagem da logo -->
+            </a>
+
+            <nav class="nav" id="nav"> <!-- Menu de navegação -->
+                <ul class="nav-list"> <!-- Lista do menu -->
+                    <li><a href="#home" class="nav-link">Home</a></li> <!-- Link para Home -->
+                    <li><a href="#planos" class="nav-link">Planos</a></li> <!-- Link para Planos -->
+                    <li><a href="#metodologias" class="nav-link">Metodologias</a></li> <!-- Link -->
+                    <li><a href="#noticias" class="nav-link">Notícias</a></li> <!-- Link -->
+                    <li><a href="#historia" class="nav-link">História</a></li> <!-- Link -->
+                    <li><a href="#contato" class="nav-link">Contato</a></li> <!-- Link -->
+                </ul>
+            </nav>
+
+            <div class="header-social nav"> <!-- Área de redes sociais -->
+                <a href="https://www.instagram.com/elitezonebrasil" target="_blank" class="icon-circle"> <!--TARGET BLANK É PRA ABRIR O LINK EM OUTRA ABA DO GOOGLE-->
+                    <i class="ph ph-instagram-logo"></i> <!-- Ícone Instagram -->
+                </a>
+                <a href="https://www.tiktok.com/@elitezoneacademia" target="_blank" class="icon-circle">
+                    <i class="ph ph-tiktok-logo"></i> <!-- Ícone TikTok -->
+                </a>
+                <a href="https://web.whatsapp.com/" target="_blank" class="icon-circle">
+                    <i class="ph-fill ph-whatsapp-logo"></i> <!-- Ícone WhatsApp -->
+                </a>
+            </div>
+
+            <div class="header-actions"> <!-- Área de botões do header -->
+
+                <button id="theme-toggle" class="icon-btn" aria-label="Trocar Tema"> <!-- Botão de tema -->
+                    <i class="ph-fill ph-moon"></i> <!-- Ícone lua -->
+                </button>
+
+                <a href="#contato" class="btn btn-primary d-none-mobile">Matricule-se</a> <!-- Botão principal -->
+
+                <button class="icon-btn menu-btn" id="menu-btn" aria-label="Abrir Menu"> <!-- Botão menu mobile -->
+                    <i class="ph ph-list"></i> <!-- Ícone menu -->
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main> <!-- Conteúdo principal -->
+        <section id="home" class="hero"> <!-- Seção principal com banner -->
+
+            <div id="carousel" class="carousel"> <!-- Container do carrossel -->
+
+                <div class="carousel-slide active"> <!-- Slide 1 (ativo) -->
+                    <img src="img/slide03.png" alt="Musculação" class="carousel-bg"> <!-- Imagem de fundo -->
+                    <div class="carousel-content container"> <!-- Conteúdo do slide -->
+                        <h1>Construa seu melhor físico na Elite Zone</h1> <!-- Título -->
+                        <p>Alcance o mais alto nível de performance com equipamentos de última geração e um ambiente
+                            exclusivo.</p> <!-- Texto -->
+                        <a href="#metodologias" class="btn btn-primary">Ver Metodologias</a> <!-- Botão -->
+                    </div>
+                </div>
+
+                <div class="carousel-slide"> <!-- Slide 2 -->
+                    <img src="img/slide02.png" alt="Treinos" class="carousel-bg">
+                    <div class="carousel-content container">
+                        <h1>Desafie seus limites com o treino funcional</h1>
+                        <p>Aulas energéticas, focadas em força, resistência e condicionamento.</p>
+                        <a href="#contato" class="btn btn-primary">Agende uma Visita</a>
+                    </div>
+                </div>
+
+                <div class="carousel-slide"> <!-- Slide 3 -->
+                    <img src="img/slide01.png" alt="Cardio" class="carousel-bg">
+                    <div class="carousel-content container">
+                        <h1>Seu melhor desempenho começa aqui</h1>
+                        <p>Estrutura moderna e treinos que acompanham seu ritmo. Acesse nossos planos e dê o próximo
+                            passo.</p>
+                        <a href="#planos" class="btn btn-primary">Ver Planos</a>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control prev" id="btn-prev"> <!-- Botão voltar -->
+                <i class="ph ph-caret-left"></i>
+            </button>
+
+            <button class="carousel-control next" id="btn-next"> <!-- Botão avançar -->
+                <i class="ph ph-caret-right"></i>
+            </button>
+
+        </section>
+    </main>
+
+    <script src="js/script.js"></script> <!-- Importa JavaScript -->
+
+</body>
+
+</html>
