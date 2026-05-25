@@ -3,12 +3,15 @@
 
 <head>
     <meta charset="UTF-8"> <!-- Permite acentuação e caracteres especiais -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Responsividade em dispositivos móveis -->
     <title>EliteZone</title> <!-- Título da aba do navegador -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Melhora o carregamento das fontes -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Permite conexão com servidor de fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet"> <!-- Importa várias fontes -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+        rel="stylesheet"> <!-- Importa várias fontes -->
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script> <!-- Biblioteca de ícones -->
 
@@ -28,15 +31,17 @@
                 <ul class="nav-list"> <!-- Lista do menu -->
                     <li><a href="#home" class="nav-link">Home</a></li> <!-- Link para Home -->
                     <li><a href="#planos" class="nav-link">Planos</a></li> <!-- Link para Planos -->
+                    <li><a href="#impacto" class="nav-link">Impacto</a></li> <!-- Link -->
                     <li><a href="#metodologias" class="nav-link">Metodologias</a></li> <!-- Link -->
                     <li><a href="#noticias" class="nav-link">Notícias</a></li> <!-- Link -->
-                    <li><a href="#historia" class="nav-link">História</a></li> <!-- Link -->
+                    <li><a href="#eventos" class="nav-link">Eventos</a></li> <!-- Link -->
                     <li><a href="#contato" class="nav-link">Contato</a></li> <!-- Link -->
                 </ul>
             </nav>
 
             <div class="header-social nav"> <!-- Área de redes sociais -->
-                <a href="https://www.instagram.com/elitezonebrasil" target="_blank" class="icon-circle"> <!--TARGET BLANK É PRA ABRIR O LINK EM OUTRA ABA DO GOOGLE-->
+                <a href="https://www.instagram.com/elitezonebrasil" target="_blank" class="icon-circle">
+                    <!--TARGET BLANK É PRA ABRIR O LINK EM OUTRA ABA DO GOOGLE-->
                     <i class="ph ph-instagram-logo"></i> <!-- Ícone Instagram -->
                 </a>
                 <a href="https://www.tiktok.com/@elitezoneacademia" target="_blank" class="icon-circle">
@@ -104,12 +109,397 @@
             <button class="carousel-control next" id="btn-next"> <!-- Botão avançar -->
                 <i class="ph ph-caret-right"></i>
             </button>
-
         </section>
-    </main>
+        <!--SEÇÃO DE PLANOS-->
+        <section id="planos" class="section bg-alt"> <!-- Seção de planos -->
+            <div class="container"> <!-- Container central -->
+
+                <div class="section-title"> <!-- Título da seção -->
+                    <h2>Nossos Planos</h2> <!-- Título principal -->
+                    <div class="line"></div> <!-- Linha decorativa -->
+                    <p>Escolha o plano ideal e inicie sua jornada de alta performance com a estrutura premium da Elite
+                        Zone.</p> <!-- Texto descritivo -->
+                </div>
+
+                <div class="grid grid-cards"> <!-- Grid de cards -->
+
+                    <article class="card"> <!-- Card plano basic -->
+                        <div class="card-icon-wrapper"> <!-- Container da imagem -->
+                            <img src="img/planobasic.png" alt="Plano Basic"> <!-- Imagem do plano -->
+                        </div>
+                        <h3>Plano Basic</h3> <!-- Nome do plano -->
+                        <p>Acesse a musculação e área de cardio com treinos essenciais para iniciar sua evolução física.
+                        </p> <!-- Descrição -->
+                        <h2>R$ 99,90</h2> <!-- Preço -->
+                        <a href="#" class="btn btn-outline">Saiba Mais</a> <!-- Botão -->
+                    </article>
+
+                    <article class="card"> <!-- Card plano pro -->
+                        <div class="card-icon-wrapper">
+                            <img src="img/planopro.png" alt="Plano Pro"> <!-- Imagem -->
+                        </div>
+                        <h3>Plano Pro</h3> <!-- Nome -->
+                        <p>Treine com acesso completo à musculação e funcional, com mais liberdade e suporte para
+                            evolução constante.</p> <!-- Descrição -->
+                        <h2>R$ 169,90</h2> <!-- Preço -->
+                        <a href="#" class="btn btn-outline">Saiba Mais</a> <!-- Botão -->
+                    </article>
+
+                    <article class="card"> <!-- Card plano elite -->
+                        <div class="card-icon-wrapper">
+                            <img src="img/planoelite.png" alt="Plano Elite"> <!-- Imagem -->
+                        </div>
+                        <h3>Plano Elite</h3> <!-- Nome -->
+                        <p>Experiência premium com acesso total, acompanhamento personalizado e estrutura exclusiva para
+                            alta performance.</p> <!-- Descrição -->
+                        <h2>R$ 209,90</h2> <!-- Preço -->
+                        <a href="#" class="btn btn-outline">Saiba Mais</a> <!-- Botão -->
+                    </article>
+
+                </div> <!-- Fim grid -->
+
+            </div> <!-- Fim container -->
+
+        </section> <!-- Fim seção planos -->
+
+        <!--IMPACTO-->
+        <section id="impacto" class="section stats-section"> <!-- Seção impacto -->
+            <div class="container"> <!-- Container -->
+
+                <div class="section-title title-light"> <!-- Título -->
+                    <h2>Impacto da Elite Zone</h2> <!-- Título principal -->
+                    <div class="line"></div> <!-- Linha -->
+
+                    <div class="grid grid-stats"> <!-- Grid estatísticas -->
+
+                        <div class="stat-box"> <!-- Box -->
+                            <i class="ph ph-calendar"></i> <!-- Ícone -->
+                            <span class="stat-num" data-target="10">0</span> <!-- Número animado -->
+                            <p>Anos de História</p> <!-- Texto -->
+                        </div>
+
+                        <div class="stat-box">
+                            <i class="ph ph-buildings"></i>
+                            <span class="stat-num" data-target="30">0</span>
+                            <p>Unidades</p>
+                        </div>
+
+                        <div class="stat-box">
+                            <i class="ph ph-users"></i>
+                            <span class="stat-num" data-target="15000">0</span>
+                            <p>Alunos Ativos</p>
+                        </div>
+
+                        <div class="stat-box">
+                            <i class="ph ph-barbell"></i>
+                            <span class="stat-num" data-target="300">0</span>
+                            <p>Aparelhos de Alta Performance</p>
+                        </div>
+
+                    </div> <!-- Fim grid stats -->
+                </div> <!-- Fim título -->
+            </div> <!-- Fim container -->
+        </section> <!-- Fim impacto -->
+
+        <section id="metodologias" class="section bg-alt"> <!-- Seção metodologias -->
+
+            <div class="container"> <!-- Container -->
+
+                <div class="section-title"> <!-- Título -->
+                    <h2>Nossas Metodologias</h2>
+                    <div class="line"></div>
+                    <p>
+                        Metodologias desenvolvidas para maximizar seus resultados
+                        com intensidade, tecnologia e acompanhamento profissional.
+                    </p> <!-- Texto -->
+                </div>
+
+                <div class="grid grid-methods"> <!-- Grid métodos -->
+
+                    <article class="method-card"> <!-- Card -->
+                        <div class="method-icon"> <!-- Ícone -->
+                            <i class="ph-fill ph-barbell"></i>
+                        </div>
+                        <h3>Musculação Premium</h3> <!-- Título -->
+                        <p>
+                            Estrutura moderna e equipamentos de última geração
+                            para treinos focados em hipertrofia e performance.
+                        </p> <!-- Descrição -->
+                    </article>
+
+                    <article class="method-card">
+                        <div class="method-icon">
+                            <i class="ph-fill ph-lightning"></i>
+                        </div>
+                        <h3>Treino Funcional</h3>
+                        <p>
+                            Exercícios dinâmicos que desenvolvem resistência,
+                            mobilidade, força e condicionamento físico.
+                        </p>
+                    </article>
+
+                    <article class="method-card">
+                        <div class="method-icon">
+                            <i class="ph-fill ph-heartbeat"></i>
+                        </div>
+                        <h3>Cardio Performance</h3>
+                        <p>
+                            Área completa para treinos cardiovasculares de alta
+                            intensidade e melhora da resistência.
+                        </p>
+                    </article>
+
+                    <article class="method-card">
+                        <div class="method-icon">
+                            <i class="ph-fill ph-music-notes"></i>
+                        </div>
+                        <h3>Fit Dance</h3>
+                        <p>
+                            Aulas animadas que unem dança, diversão e gasto
+                            calórico para transformar seu treino.
+                        </p>
+                    </article>
+                </div> <!-- Fim grid -->
+
+            </div> <!-- Fim container -->
+
+        </section> <!-- Fim metodologias -->
+
+        <!-- SEÇÃO NOTÍCIAS E EVENTOS -->
+        <section id="noticias-eventos" class="section"> <!-- Seção -->
+            <div class="container grid dual-layout"> <!-- Layout duplo -->
+                
+                <!-- COLUNA ESQUERDA - NOTÍCIAS -->
+                <div class="news-container" id="noticias"> <!-- Notícias -->
+                    <h3 class="box-title">Últimas Notícias</h3> <!-- Título -->
+
+                    <!-- NOTÍCIA 1 -->
+                    <article class="news-item"> 
+                        <img src="img/news01.png" alt="Treino Funcional" class="news-img"> <!-- Imagem -->
+                        <div class="news-text"> <!-- Texto -->
+                            <h4>Novo espaço funcional inaugurado</h4>
+                            <span class="news-date">20 de Maio, 2026</span>
+                            <p>
+                                A Elite Zone expandiu sua área funcional com novos
+                                equipamentos de alta performance.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- NOTÍCIA 2 -->
+                <article class="news-item">
+                        <img src="img/news02.png" alt="Musculação" class="news-img">
+                        <div class="news-text">
+                            <h4>Nova linha de aparelhos premium</h4>
+                            <span class="news-date">18 de Maio, 2026</span>
+                            <p>
+                                Equipamentos importados chegaram para elevar o nível
+                                dos treinos da Elite Zone.
+                            </p>
+                        </div>
+
+                </article>
+
+                <!-- NOTÍCIA 3 -->
+                <article class="news-item">
+                        <img src="img/news03.png" alt="Copa do Mundo" class="news-img">
+                        <div class="news-text">
+                            <h4>Elite Zone terá transmissão especial da Copa</h4>
+                            <span class="news-date">16 de Maio, 2026</span>
+                            <p>
+                                A academia preparou um espaço exclusivo para os alunos
+                                acompanharem os jogos da Copa do Mundo com muita energia
+                                e interação.
+                            </p>
+                        </div>
+                </article>
+
+            </div> <!-- Fim notícias -->
+
+                <!-- COLUNA DIREITA - EVENTOS -->
+                <div class="events-container" id="eventos"> <!-- Eventos -->
+                    <h3 class="box-title">Próximos Eventos</h3> <!-- Título -->
+
+                    <!-- EVENTO 1 -->
+                    <div class="event-item">
+                        <div class="event-calendar"> <!-- Calendário -->
+                            <span class="day">13</span> <!-- Dia -->
+                            <span class="month">JUN</span> <!-- Mês -->
+                        </div>
+                        <div class="event-text"> <!-- Texto -->
+                            <h4>Transmissão Especial da Copa</h4>
+                            <span class="event-meta"> <!-- Infos -->
+                                <span>
+                                    <i class="ph ph-map-pin"></i>
+                                    Espaço Lounge
+                                </span>
+                                <span>
+                                    <i class="ph ph-clock"></i>
+                                    19:00
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- EVENTO 2 -->
+                    <div class="event-item">
+                        <div class="event-calendar">
+                            <span class="day">15</span>
+                            <span class="month">JUN</span>
+                        </div>
+                        <div class="event-text">
+                            <h4>Aulão Especial de Funcional</h4>
+                            <span class="event-meta">
+                                <span>
+                                    <i class="ph ph-map-pin"></i>
+                                    Unidade Campinas
+                                </span>
+                                <span>
+                                    <i class="ph ph-clock"></i>
+                                    19:00
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- EVENTO 3 -->
+                    <div class="event-item">
+                        <div class="event-calendar">
+                            <span class="day">28</span>
+                            <span class="month">JUN</span>
+                        </div>
+                        <div class="event-text">
+                            <h4>Desafio Elite Zone</h4>
+                            <span class="event-meta">
+                                <span>
+                                    <i class="ph ph-map-pin"></i>
+                                    Arena Performance
+                                </span>
+                                <span>
+                                    <i class="ph ph-clock"></i>
+                                    14:00
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                </div> <!-- Fim eventos -->
+            </div> <!-- Fim layout -->
+        </section> <!-- Fim seção -->
+
+        <!-- SEÇÃO CONTATO -->
+        <section class="section bg-alt" id="contato"> <!-- Seção contato -->
+            <div class="container grid contact-layout"> <!-- Layout contato -->
+
+                <div class="contact-info"> <!-- Informações -->
+                    <h2>Pronto para treinar na Elite Zone?</h2>
+                    <p>Fale com nossa equipe e descubra o plano ideal para você. Tire dúvidas, agende uma visita ou comece hoje mesmo!</p>
+                    <ul class="contact-list"> <!-- Lista -->
+                        <li><i class="ph ph-envelope-simple"></i>contato@elitezone.com.br</li>
+                        <li><i class="ph ph-phone"></i>(47) 99999-0000</li>
+                        <li><i class="ph ph-map-pin"></i>Sua unidade mais próxima</li>
+                    </ul>
+                </div> <!-- Fim info -->
+
+                <!-- FORMULÁRIO -->
+                <div class="contact-form"> <!-- Container do formulário -->
+                    <form onsubmit="return false;"> <!-- Formulário (evita envio padrão da página) -->
+                        <div class="input-group"> <!-- Grupo de input -->
+                            <label for="nome">Seu nome</label> <!-- Label do campo nome -->
+                            <input type="text" id="nome" placeholder="Digite seu nome"> <!-- Campo de texto -->
+                        </div>
+                        <div class="input-group"> <!-- Grupo de input -->
+                            <label for="email">Seu e-mail</label> <!-- Label do email -->
+                            <input type="email" id="email" placeholder="seu@email.com"> <!-- Campo email -->
+                        </div>
+
+                        <!-- NOVO CAMPO -->
+                        <div class="input-group"> <!-- Grupo de seleção -->
+                            <label for="tipo">O que você deseja?</label> <!-- Label -->
+                            <select id="tipo"> <!-- Campo select -->
+                                <option value="">Selecione uma opção</option> <!-- Opção padrão -->
+                                <option>Quero conhecer os planos</option> <!-- Opção -->
+                                <option>Tenho dúvidas</option> <!-- Opção -->
+                                <option>Agendar visita</option> <!-- Opção -->
+                                <option>Outros</option> <!-- Opção -->
+                            </select> <!-- Fim select -->
+                        </div>
+
+                        <div class="input-group"> <!-- Grupo de mensagem -->
+                            <label for="msg">Mensagem</label> <!-- Label -->
+                            <textarea id="msg" rows="4" placeholder="Escreva sua dúvida ou objetivo"></textarea>
+                            <!-- Área de texto -->
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-full"> <!-- Botão enviar -->
+                            Falar com a Elite Zone <!-- Texto do botão -->
+                        </button>
+                    </form> <!-- Fim formulário -->
+
+                </div> <!-- Fim contact-form -->
+
+            </div> <!-- Fecha container do contato -->
+
+        </section> <!-- Fim seção contato -->
+    </main> <!-- Fim conteúdo principal -->
+
+    <footer class="footer"> <!-- Rodapé -->
+        <div class="container grid footer-grid"> <!-- Container do rodapé -->
+            <!-- COLUNA 1 -->
+            <div class="brand-col"> <!-- Coluna da marca -->
+                <img src="img/Elitezone2.png" alt="Elite Zone"> <!-- Logo -->
+                <p>Treinamento de alto nível com estrutura premium para você alcançar sua melhor versão.</p> <!-- Texto institucional -->
+            </div>
+
+            <!-- COLUNA 2 -->
+            <div class="link-col"> <!-- Coluna de navegação -->
+                <h4>Navegação</h4> <!-- Título -->
+                <ul> <!-- Lista -->
+                    <li><a href="#home">Home</a></li> <!-- Link -->
+                    <li><a href="#planos">Planos</a></li> <!-- Link -->
+                    <li><a href="#impacto">Impacto</a></li> <!-- Link -->
+                </ul> <!-- Fim lista -->
+            </div>
+
+            <!-- COLUNA 3 -->
+            <div class="link-col"> <!-- Coluna academia -->
+                <h4>Academia</h4> <!-- Título -->
+                <ul> <!-- Lista -->
+                    <li><a href="#metodologias">Metodologias</a></li> <!-- Link -->
+                    <li><a href="#noticias">Notícias</a></li> <!-- Link -->
+                    <li><a href="#eventos">Eventos</a></li> <!-- Link -->
+                </ul> <!-- Fim lista -->
+            </div>
+
+            <!-- COLUNA 4 -->
+            <div class="social-col"> <!-- Coluna redes sociais -->
+                <h4>Acompanhe</h4> <!-- Título -->
+                <div class="social-links"> <!-- Container dos ícones -->
+                    <a href="https://www.instagram.com/elitezonebrasil" target="_blank"> <!-- Link Instagram -->
+                        <i class="ph ph-instagram-logo"></i> <!-- Ícone -->
+                    </a>
+                    <a href="https://www.tiktok.com/@elitezoneacademia" target="_blank"> <!-- Link TikTok -->
+                        <i class="ph ph-tiktok-logo"></i> <!-- Ícone -->
+                    </a>
+                    <a href="#"> <!-- Link YouTube (placeholder) -->
+                        <i class="ph ph-youtube-logo"></i> <!-- Ícone -->
+                    </a>
+                    <a href="https://github.com/GiovanyW" target="_blank">
+                        <i class="ph ph-github-logo"></i>
+                    </a>
+                </div> <!-- Fim social-links -->
+            </div>
+        </div> <!-- Fim container -->
+
+        <div class="footer-bottom"> <!-- Parte inferior -->
+            <p>&copy; 2026 Elite Zone. Todos os direitos reservados.</p> <!-- Direitos -->
+            <p>Desenvolvido por Giovany Wittlich</p> <!-- Autor -->
+        </div>
+
+    </footer> <!-- Fim rodapé -->
 
     <script src="js/script.js"></script> <!-- Importa JavaScript -->
 
-</body>
+</body> <!-- Fim body -->
 
-</html>
+</html> <!-- Fim documento HTML -->

@@ -5,12 +5,12 @@
     --primary-hover: #e00303; /* Cor quando passa o mouse */
 
     --bg-main: #021518; /* Fundo principal escuro */
-    --bg-alt: #f3f4f6; /* Fundo alternativo claro */
-    --surface: #fff; /* Cor de superfícies (cards) */
+    --bg-alt: #03171b; /* Fundo alternativo claro */
+    --surface: #183539; /* Cor de superfícies (cards) */
     --text-main: #ffffff; /* Cor principal do texto */
     --text-muted: #6b7280; /* Texto secundário */
 
-    --border: #021518; /* Cor de bordas */
+    --border: #051d21; /* Cor de bordas */
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); /* Sombra padrão */
     --radius: 8px; /* Bordas arredondadas padrão */
 }
@@ -52,7 +52,7 @@ ul {
 /*Estilo do cabeçalho*/
 .header {
     background-color: var(--bg-main); /* Fundo do header */
-    border-bottom: 1px solid var(--border); /* Linha embaixo */
+    border-bottom: 1.4px solid var(--border); /* Linha embaixo */
     position: fixed; /* Fixa no topo */
     top: 0; /* Encosta no topo */
     left: 0; /* Encosta à esquerda */
@@ -80,11 +80,13 @@ main {
 .nav-list {
     display: flex; /* Itens lado a lado */
     gap: 30px; /* Espaço entre links */
+    align-items: center;
 }
 
 .nav-link {
     font-weight: 600; /* Peso da fonte */
-    transition: color 0.5s; /* Animação suave */
+    transition: color 0.5s; /* Animação suave */;
+    transition: 0.3s ease;
 }
 
 .nav-link:hover {
@@ -92,7 +94,7 @@ main {
     border-bottom: 2.5px solid var(--primary-hover); /* Linha embaixo */
     border-radius: 5px; /* Bordas arredondadas */
     font-weight: 700; /* Fica mais grosso */
-    font-size: 16px; /* Aumenta levemente */
+    font-size: 18px; /* Aumenta levemente */
 }
 
 .header-social {
@@ -165,6 +167,17 @@ main {
 .btn-primary:hover {
     background-color: var(--primary-hover); /* Cor muda no hover */
     transform: translateY(-2px); /* Sobe levemente */
+}
+
+.btn-outline{
+    background-color: transparent;
+    border: 2px solid #cbd5e1;
+    color: var(--text-main);
+}
+
+.btn-outline:hover{
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 /*BANNER ROTATIVO*/
@@ -259,37 +272,677 @@ main {
     background: var(--primary-hover); /* Fica vermelho */
 }
 
-/*RESPONSIVIDADE*/
-@media(max-width : 768px) {
+.grid{
+    display: grid; /* Ativa o layout em grid */
+    gap: 30px; /* Espaço entre os elementos filhos */
+}
+
+.bg-alt{
+    background-color: var(--bg-alt); /* Define fundo alternativo usando variável */
+}
+
+.section{
+    padding: 80px 0; /* Espaçamento interno vertical (topo e baixo) */
+}
+
+.section-title{
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 50px; /* Espaço abaixo do título */
+}
+
+.section-title h2{
+    font-size: 2.6rem; /* Tamanho grande do título */
+    font-weight: 800; /* Texto bem forte (negrito) */
+    margin-bottom: 10px; /* Espaço abaixo do título */
+}
+
+.section-title .line{
+    width: 60px; /* Largura da linha decorativa */
+    height: 4px; /* Altura da linha */
+    background-color: var(--primary); /* Cor da linha (vermelho) */
+    margin: 0 auto 20px auto; /* Centraliza e adiciona espaço abaixo */
+    border-radius: 2px; /* Bordas arredondadas */
+}
+
+.section-title p{
+    color: var(--text-muted); /* Cor do texto secundário */
+    max-width: 1000px; /* Limita largura do texto */
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+/*CARTONES*/ /* Seção de cards */
+
+.grid-cards{
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); 
+    /* Cria colunas responsivas com mínimo de 300px */
+}
+
+.card{
+    background: #fff; /* Fundo branco */
+    border-radius: var(--radius); /* Bordas arredondadas */
+    padding: 30px; /* Espaçamento interno */
+    transition: all 0.3s ease; /* Animação suave */
+}
+
+.card:hover{
+    transform: translateY(-8px) scale(1.04); /* Sobe e aumenta levemente */
+    border: 2.2px solid var(--primary); /* Borda vermelha mais grossa */
+    border-color: var(--primary); /* Garante cor da borda */
+    background: #ffffff; /* Mantém fundo branco */
+    box-shadow: 0 15px 35px rgba(216, 25, 0, 0.4); /* Sombra vermelha forte */
+}
+
+.card-icon-wrapper{
+    display: flex; /* Usa flexbox */
+    text-align: center; /* Centraliza texto */
+    justify-content: center; /* Centraliza horizontal */
+    margin-bottom: 15px; /* Espaço abaixo */
+}
+
+.card-icon-wrapper img{
+    height: 80px; /* Altura da imagem */
+    width: auto; /* Mantém proporção */
+}
+
+.card h3{
+    display: inline-block; /* Permite aplicar borda corretamente */
+    border-bottom: 2px solid var(--primary-hover); /* Linha abaixo */
+    border-radius: 2px; /* Borda arredondada */
+    text-align: center; /* Centraliza */
+    color: #e00303; /* Cor vermelha */
+    font-size: 1.5rem; /* Tamanho do título */
+    margin-bottom: 15px; /* Espaço abaixo */
+}
+
+.card p{
+    color: var(--text-muted); /* Texto secundário */
+    font-size: 1rem; /* Tamanho padrão */
+    margin-bottom: 30px; /* Espaço abaixo */
+}
+
+.card h2{
+    font-size: 1.9rem; /* Tamanho do preço */
+    margin-bottom: 15px; /* Espaço abaixo */
+    color: #e00303; /* Vermelho */
+    text-align: center; /* Centraliza */
+}
+
+.card a{
+    display: block; /* Faz o link ocupar toda linha */
+    text-align: center; /* Centraliza texto */
+}
+
+.card .btn-outline{
+    background-color: transparent; /* Fundo transparente */
+    border: 2px solid var(--primary); /* Borda vermelha */
+    color: var(--primary); /* Texto vermelho */
+}
+
+.card .btn-outline:hover{
+    background-color: var(--primary); /* Fundo vermelho */
+    color: #fff; /* Texto branco */
+    transform: translateY(-3px); /* Sobe levemente */
+}
+
+/*NÚMEROS*/ /* Seção de estatísticas */
+
+.stats-section{
+    background: #ffffff; /* Fundo branco */
+    padding: 100px 0; /* Espaçamento vertical */
+}
+
+.stats-section .section-title{
+    text-align: center; /* Centraliza */
+    margin-bottom: 70px; /* Espaço abaixo */
+}
+
+.stats-section .section-title h2{
+    color: #202839; /* Cor escura */
+    font-size: 3rem; /* Tamanho grande */
+    font-weight: 800; /* Negrito forte */
+}
+
+.stats-section .line{
+    width: 80px; /* Largura maior */
+    height: 4px; /* Altura */
+    background: #dc2626; /* Vermelho */
+    margin: 20px auto 0; /* Centraliza */
+    border-radius: 999px; /* Borda arredondada */
+}
+
+.grid-stats{
+    display: grid; /* Grid */
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); 
+    /* Responsivo */
+    gap: 40px; /* Espaço */
+    text-align: center; /* Centraliza texto */
+}
+
+.stat-box{
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Coluna */
+    align-items: center; /* Centraliza horizontal */
+    justify-content: center; /* Centraliza vertical */
+}
+
+.stat-box i{
+    font-size: 3.5rem; /* Ícone grande */
+    color: #dc2626; /* Vermelho */
+    margin-bottom: 20px; /* Espaço abaixo */
+}
+
+.stat-box .stat-num{
+    display: block; /* Ocupa linha */
+    font-size: 4.5rem; /* Número grande */
+    font-weight: 800; /* Negrito */
+    line-height: 1; /* Altura da linha */
+    color: #202839; /* Cor escura */
+    margin-bottom: 10px; /* Espaço abaixo */
+}
+
+.stat-box p{
+    color: #6b7280; /* Cinza */
+    text-transform: uppercase; /* Texto maiúsculo */
+    letter-spacing: 2px; /* Espaçamento letras */
+    font-size: 0.9rem; /* Tamanho pequeno */
+    font-weight: 500; /* Peso médio */
+}
+
+/*METODOLOGIAS*/ /* Seção de métodos */
+
+.grid-methods{
+    display: grid; /* Grid */
+    grid-template-columns: repeat(4,1fr); /* 4 colunas */
+    gap: 30px; /* Espaço */
+    margin-top: 50px; /* Espaço acima */
+}
+
+.method-card{
+    background: #ffffff; /* Fundo branco */
+    border-radius: var(--radius); /* Borda arredondada */
+    padding: 35px 30px; /* Espaçamento */
+    text-align: center; /* Centraliza */
+    transition: all 0.3s ease; /* Animação */
+}
+
+.method-card:hover{
+    transform: translateY(-8px) scale(1.03); /* Efeito hover */
+    border: 2px solid var(--primary); /* Borda vermelha */
+    box-shadow: 0 15px 35px rgba(216, 25, 0, 0.25); /* Sombra */
+}
+
+.method-icon{
+    margin-bottom: 18px; /* Espaço abaixo */
+}
+
+.method-icon i{
+    font-size: 3.2rem; /* Ícone grande */
+    color: var(--primary); /* Vermelho */
+}
+
+.method-card h3{
+    display: inline-block; /* Permite borda */
+    border-bottom: 2px solid var(--primary-hover); /* Linha */
+    border-radius: 2px; /* Arredondado */
+    text-align: center; /* Centraliza */
+    color: #e00303; /* Vermelho */
+    font-size: 1.5rem; /* Tamanho */
+    font-weight: 700; /* Negrito */
+    font-family: 'Titillium Web', sans-serif; /* Fonte */
+    margin-bottom: 15px; /* Espaço */
+}
+
+.method-card p{
+    color: var(--text-muted); /* Texto secundário */
+    line-height: 1.7; /* Espaçamento entre linhas */
+    font-size: 0.96rem; /* Tamanho */
+}
+
+/* NOTÍCIAS E EVENTOS */
+
+#noticias-eventos{
+    background-color: #fff; /* Fundo branco */
+}
+
+.dual-layout{
+    display: grid; /* Grid */
+    grid-template-columns: 1.5fr 1fr; /* Duas colunas com proporção */
+    gap: 60px; /* Espaço entre colunas */
+    align-items: start; /* Alinha no topo */
+}
+
+.box-title{
+    font-size: 1.5rem; /* Tamanho do título */
+    font-weight: 700; /* Negrito */
+    border-bottom: 2px solid red; /* Linha vermelha */
+    padding-bottom: 15px; /* Espaço abaixo */
+    margin-bottom: 30px; /* Espaço abaixo */
+    color: #202839; /* Cor escura */
+}
+
+/* NOTÍCIAS */
+
+.news-item{
+    display: flex; /* Usa flexbox para alinhar imagem e texto lado a lado */
+    gap: 20px; /* Espaço entre imagem e texto */
+    margin-bottom: 30px; /* Espaço abaixo de cada notícia */
+    transition: 0.3s; /* Animação suave */
+}
+
+.news-item:hover{
+    transform: translateX(10px); /* Move para direita ao passar o mouse */
+}
+
+.news-img{
+    width: 160px; /* Largura fixa da imagem */
+    height: 110px; /* Altura fixa da imagem */
+    object-fit: cover; /* Corta a imagem sem distorcer */
+    border-radius: var(--radius); /* Bordas arredondadas */
+}
+
+.news-text h4{
+    font-size: 1.1rem; /* Tamanho do título */
+    margin-bottom: 8px; /* Espaço abaixo */
+    color: #202839; /* título escuro */
+}
+
+.news-date{
+    display: block; /* Faz ocupar linha inteira */
+    font-size: 0.8rem; /* Tamanho pequeno */
+    color: var(--primary); /* Cor vermelha */
+    font-weight: 700; /* Negrito */
+    text-transform: uppercase; /* Texto em maiúsculo */
+    margin-bottom: 10px; /* Espaço abaixo */
+}
+
+.news-text p{
+    color: var(--text-muted); /* Texto cinza */
+    font-size: 0.95rem; /* Tamanho levemente menor */
+}
+
+/* EVENTOS */
+
+.event-item{
+    display: flex; /* Flexbox para alinhar conteúdo */
+    gap: 20px; /* Espaço entre elementos */
+    margin-bottom: 25px; /* Espaço abaixo */
+    align-items: center; /* Alinha verticalmente */
+
+    background-color: #fff; /* Fundo branco */
+    border: 1px solid #e5e7eb; /* Borda cinza clara */
+    border-radius: var(--radius); /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    transition: 0.3s; /* Animação */
+}
+
+.event-item:hover{
+    transform: translateY(-5px); /* Sobe levemente */
+    border-color: var(--primary); /* Borda fica vermelha */
+    box-shadow: var(--shadow); /* Adiciona sombra */
+}
+
+.event-calendar{
+    width: 80px; /* Largura fixa */
+    height: 80px; /* Altura fixa */
+    background-color: var(--primary); /* Fundo vermelho */
+    color: #fff; /* Texto branco */
+    border-radius: var(--radius); /* Bordas arredondadas */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Organiza em coluna */
+    align-items: center; /* Centraliza horizontal */
+    justify-content: center; /* Centraliza vertical */
+    flex-shrink: 0; /* Impede de encolher */
+}
+
+.event-calendar .day{
+    font-size: 1.8rem; /* Número grande (dia) */
+    font-weight: 800; /* Negrito */
+    line-height: 1; /* Altura da linha */
+}
+
+.event-calendar .month{
+    font-size: 0.85rem; /* Tamanho menor */
+    font-weight: 600; /* Semi-negrito */
+    letter-spacing: 1px; /* Espaço entre letras */
+}
+
+.event-text h4{
+    font-size: 1rem; /* Tamanho do título */
+    margin-bottom: 8px; /* Espaço abaixo */
+    color: #202839; /* título escuro */
+}
+
+.event-meta{
+    display: flex; /* Flexbox */
+    gap: 15px; /* Espaço entre itens */
+    flex-wrap: wrap; /* Quebra linha se necessário */
+    color: var(--text-muted); /* Texto cinza */
+    font-size: 0.9rem; /* Tamanho menor */
+}
+
+.event-meta i{
+    color: var(--primary); /* Ícones vermelhos */
+    margin-right: 5px; /* Espaço à direita */
+}
+
+/* RESPONSIVO */
+
+@media(max-width: 768px){
+
+    .dual-layout{
+        grid-template-columns: 1fr; /* Vira uma coluna */
+    }
+
+    .news-item{
+        flex-direction: column; /* Empilha imagem e texto */
+    }
+
+    .news-img{
+        width: 100%; /* Ocupa toda largura */
+        height: 220px; /* Altura maior */
+    }
+
+}
+
+/* =========================
+   CONTATO (ESTILO MODERNO)
+========================= */
+
+.contact-layout{
+    display: grid; /* Layout em grid */
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 60px; /* Espaço entre colunas */
+    align-items: flex-start; /* Alinha no topo */
+}
+
+.contact-info h2{
+    font-size: 2.4rem; /* Título grande */
+    margin-bottom: 20px; /* Espaço abaixo */
+}
+
+.contact-info p{
+    color: var(--text-muted); /* Texto cinza */
+    margin-bottom: 30px; /* Espaço abaixo */
+    font-size: 1.05rem; /* Tamanho levemente maior */
+}
+
+.contact-list{
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Coluna */
+    gap: 20px; /* Espaço entre itens */
+}
+
+.contact-list li{
+    display: flex; /* Flexbox */
+    align-items: center; /* Alinha verticalmente */
+    gap: 15px; /* Espaço entre ícone e texto */
+    font-size: 1.05rem; /* Tamanho */
+}
+
+.contact-list i{
+    font-size: 1.8rem; /* Ícone grande */
+    color: var(--primary); /* Cor vermelha */
+}
+
+/* FORM */
+
+.contact-form{
+    background-color: var(--surface); /* Fundo do formulário */
+    border: 1px solid var(--border); /* Borda */
+    border-radius: var(--radius); /* Bordas arredondadas */
+    padding: 40px; /* Espaçamento interno */
+    box-shadow: var(--shadow); /* Sombra */
+    border-top: 4px solid var(--primary); /* Linha vermelha no topo */
+}
+
+/* INPUTS */
+
+.input-group{
+    margin-bottom: 20px; /* Espaço entre campos */
+}
+
+.input-group label{
+    display: block; /* Ocupa linha inteira */
+    margin-bottom: 6px; /* Espaço abaixo */
+    font-weight: 500; /* Peso médio */
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select{
+    width: 100%; /* Ocupa toda largura */
+    padding: 14px; /* Espaçamento interno */
+    border: 1px solid var(--border); /* Borda */
+    border-radius: var(--radius); /* Bordas arredondadas */
+    background-color: var(--bg-main); /* Fundo escuro */
+    color: var(--text-main); /* Texto branco */
+    font-size: 0.95rem; /* Tamanho */
+    font-family: inherit; /* Usa mesma fonte do site */
+    transition: 0.3s; /* Animação */
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus{
+    outline: none; /* Remove contorno padrão */
+    border-color: var(--primary); /* Borda vermelha */
+    box-shadow: 0 0 0 3px rgba(216, 25, 0, 0.2); /* Glow vermelho */
+}
+
+.w-full{
+    width: 100%; /* Ocupa largura total */
+}
+
+/* =========================
+   FOOTER ELITE ZONE
+========================= */ /* Título da seção do rodapé */
+
+/* Container principal do footer */
+.footer{
+    background-color: #021518; /* Cor de fundo escura */
+    padding-top: 100px; /* Espaço interno no topo */
+    border-top: 1px solid var(--surface); /* Linha superior */
+}
+
+/* GRID */
+/* Estrutura em grid do rodapé */
+.footer-grid{
+    display: grid; /* Ativa grid layout */
+    grid-template-columns: 2fr 1fr 1fr 1fr; /* Define colunas (logo maior + 3 menores) */
+    gap: 50px; /* Espaço entre colunas */
+    margin-bottom: 60px; /* Espaço inferior */
+    align-items: flex-start; /* Alinha itens no topo */
+}
+
+/* LOGO */
+/* Estilização da imagem da logo */
+.brand-col img{
+    margin-left: 40px; /* Espaço à esquerda */
+    height: 50px; /* Altura da logo */
+    width: auto; /* Mantém proporção */
+    display: block; /* Remove espaços indesejados */
+}
+
+/* TEXTO */
+/* Texto descritivo da marca */
+.brand-col p{
+    color: #9ca3af; /* Cor cinza suave */
+    line-height: 1.5;      /* Espaçamento entre linhas */
+    max-width: 350px; /* Limita largura */
+    margin-top: 20px;     /* Espaço acima */
+}
+
+/* TÍTULOS */
+/* Títulos das colunas do footer */
+.footer h4{
+    font-size: 1.2rem; /* Tamanho do texto */
+    font-weight: 700; /* Negrito */
+    margin-bottom: 20px; /* Espaço abaixo */
+    color: #fff; /* Cor branca */
+    position: relative; /* Permite pseudo-elemento */
+}
+
+/* Linha decorativa abaixo do título */
+.footer h4::after{
+    content: ""; /* Cria elemento vazio */
+    width: 40px; /* Largura da linha */
+    height: 3px; /* Altura da linha */
+    background: var(--primary); /* Cor vermelha */
+    display: block; /* Ocupa linha */
+    margin-top: 8px; /* Espaço acima */
+    border-radius: 2px; /* Bordas arredondadas */
+}
+
+/* LINKS */
+/* Lista de links */
+.link-col ul{
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Um abaixo do outro */
+    gap: 12px; /* Espaço entre links */
+}
+
+/* Estilo dos links */
+.link-col a{
+    color: #9ca3af; /* Cor padrão */
+    transition: 0.3s; /* Animação */
+    font-size: 0.95rem; /* Tamanho */
+}
+
+/* Hover dos links */
+.link-col a:hover{
+    color: #e00303; /* Fica vermelho */
+    border-bottom: 2.5px solid var(--primary-hover); /* Linha embaixo */
+    border-radius: 5px; /* Borda arredondada */
+    transform: translateX(5px); /* Move para direita */
+}
+
+/* REDES SOCIAIS */
+/* Container dos ícones */
+.social-links{
+    display: flex; /* Flexbox */
+    gap: 15px; /* Espaço entre ícones */
+    margin-top: 10px; /* Espaço acima */
+}
+
+/* Estilo dos ícones */
+.social-links a{
+    width: 50px; /* Largura */
+    height: 50px; /* Altura */
+    border: 2px solid #ffffff20; /* Borda transparente */
+    border-radius: 50%; /* Forma circular */
+    font-size: 1.4rem; /* Tamanho do ícone */
+    display: flex; /* Centralização */
+    align-items: center; /* Centro vertical */
+    justify-content: center; /* Centro horizontal */
+    color: #fff; /* Cor branca */
+    transition: 0.3s; /* Animação */
+}
+
+/* Hover dos ícones */
+.social-links a:hover{
+    border-color: var(--primary); /* Borda vermelha */
+    color: var(--primary); /* Ícone vermelho */
+    transform: translateY(-5px) scale(1.1); /* Sobe e aumenta */
+    box-shadow: 0 10px 25px rgba(216, 25, 0, 0.3); /* Sombra vermelha */
+}
+
+/* LINHA FINAL */
+/* Parte inferior do footer */
+.footer-bottom{
+    text-align: center; /* Centraliza texto */
+    padding: 25px 0; /* Espaçamento vertical */
+    border-top: 1.5px solid var(--surface); /* Linha superior */
+    color: #6b7280; /* Cor cinza */
+    font-size: 0.85rem; /* Tamanho pequeno */
+}
+
+
+/* =========================
+   RESPONSIVIDADE COMPLETA
+========================= */ /* Seção de ajustes responsivos */
+
+/* TABLET */
+@media (max-width: 992px){ /* Para telas até 992px */
+
+    .dual-layout,
+    .contact-layout{
+        grid-template-columns: 1fr; /* Uma coluna só */
+    }
+
+    /* METODOLOGIAS */
+    .grid-methods{
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    }
+
+    /* FOOTER */
+    .footer-grid{
+        grid-template-columns: 1fr 1fr; /* 2 colunas */
+    }
+}
+
+
+/* MOBILE */
+@media(max-width : 768px) { /* Para telas menores que 768px */
 
     #menu-btn {
-        display: flex; /* Mostra botão menu */
+        display: flex; /* Mostra botão do menu */
     }
 
     .d-none-mobile {
-        display: none; /* Esconde elementos */
+        display: none; /* Esconde elementos no mobile */
     }
 
     .nav{
         position: fixed; /* Menu fixo */
-        top: 70px; /* Abaixo do header */
-        right: -100%; /* Escondido */
+        top: 80px; /* Abaixo do header */
+        right: -100%; /* Escondido fora da tela */
         width: 100%; /* Largura total */
-        height: calc(100vh - 80px); /* Altura */
+        height: calc(100vh - 80px); /* Altura total menos header */
         background-color: var(--bg-main); /* Fundo */
         transition: right 0.4s ease; /* Animação */
-        padding-top: 40px; /* Espaço */
-        border-top: 1px solid var(--border); /* Linha */
+        padding-top: 40px; /* Espaço interno */
+        border-top: 1px solid var(--border); /* Linha superior */
     }
 
     .nav-list{
-        flex-direction: column; /* Coluna */
+        flex-direction: column; /* Itens em coluna */
         align-items: center; /* Centraliza */
-        gap: 40px; /* Espaço */
+        gap: 40px; /* Espaço entre itens */
     }
 
     .nav.active{
         right: 0; /* Mostra menu */
     }
 
+    /* METODOLOGIAS */
+    .grid-methods{
+        grid-template-columns: 1fr; /* 1 coluna */
+        gap: 20px; /* Espaço */
+    }
+
+    /* FOOTER */
+    .footer-grid{
+        grid-template-columns: 1fr; /* 1 coluna */
+        text-align: center; /* Centraliza conteúdo */
+    }
+
+    .footer h4{
+        text-align: center; /* Centraliza títulos */
+    }
+
+    .footer h4::after{
+        margin: 8px auto 0 auto; /* Centraliza linha vermelha */
+    }
+
+    .social-links{
+        justify-content: center; /* Centraliza ícones */
+    }
+
+    .brand-col img{
+        margin: 0 auto; /* Centraliza logo */
+    }
+
+    .brand-col p{
+        margin: 15px auto 0 auto; /* Centraliza texto */
+    }
 }
