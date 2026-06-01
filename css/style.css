@@ -1,948 +1,1062 @@
-/*Varáveis*/ /* Define variáveis globais reutilizáveis */
+/* ========================= */
+/* VARIÁVEIS GLOBAIS         */
+/* ========================= */
 
 :root {
-    --primary: #d81900d8; /* Cor principal (vermelho da marca) */
-    --primary-hover: #e00303; /* Cor quando passa o mouse */
+    --primary: #d81900d8; /* Cor principal da marca (vermelho) */
+    --primary-hover: #e00303; /* Vermelho mais vivo usado em hovers e destaques */
 
-    --bg-main: #021518; /* Fundo principal escuro */
-    --bg-alt: #03171b; /* Fundo alternativo claro */
-    --surface: #183539; /* Cor de superfícies (cards) */
-    --text-main: #ffffff; /* Cor principal do texto */
-    --text-muted: #6b7280; /* Texto secundário */
+    /* === LIGHT MODE (padrão) === */
+    --bg-main: #f0f0f0; /* Fundo base da página no light mode (cinza claro) */
+    --bg-alt: #ffffff; /* Fundo alternativo das seções com .bg-alt (branco) */
+    --surface: #e4e4e4; /* Cor de superfícies internas (cards, inputs auxiliares) */
+    --text-main: #1a1a1a; /* Cor principal do texto no light mode (quase preto) */
+    --text-muted: #6b7280; /* Cor de texto secundário (descrições, legendas) */
 
-    --border: #051d21; /* Cor de bordas */
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); /* Sombra padrão */
-    --radius: 8px; /* Bordas arredondadas padrão */
+    --border: #d4d4d4; /* Cor padrão de bordas no light mode */
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave para cards e elementos elevados */
+    --radius: 8px; /* Arredondamento padrão de bordas */
+
+    --white: #ffffff; /* Branco puro (usado em textos sobre fundos escuros) */
+    --white-transparent: #00000015; /* Preto semi-transparente (overlay de botões no carrossel) */
+    --black: #000000; /* Preto puro (fundo do hero/carrossel) */
+    --border-light: #e5e7eb; /* Borda clara usada em botões outline e textos do carrossel */
+    --text-dark: #1a1a1a; /* Texto escuro fixo (títulos de seções claras) */
+    --text-footer: #9ca3af; /* Cor do texto no rodapé */
+    --shadow-primary-strong: rgba(216, 25, 0, 0.4); /* Sombra vermelha forte (hover dos cards) */
+    --shadow-primary-mid: rgba(216, 25, 0, 0.28); /* Sombra vermelha média (hover metodologias e social) */
+    --shadow-primary-glow: rgba(216, 25, 0, 0.2); /* Glow vermelho suave (focus nos inputs) */
+    --white-overlay: rgba(0, 0, 0, 0.1); /* Overlay escuro transparente (botões do carrossel) */
+
+    /* === VARIÁVEIS SEMÂNTICAS — CARDS (light mode) === */
+    --card-bg: #ffffff; /* Fundo dos cards de planos no light mode */
+    --card-text: #6b7280; /* Cor da descrição dentro dos cards */
+    --card-title: #1a1a1a; /* Cor do título dentro dos cards */
+    --card-border: #e0e0e0; /* Borda dos cards no light mode */
+
+    /* === VARIÁVEIS SEMÂNTICAS — IMPACTO (light mode) === */
+    --stats-bg: #1a1a1a; /* Fundo escuro da seção de impacto para destaque visual */
+    --stats-title: #ffffff; /* Título da seção de impacto (branco sobre fundo escuro) */
+    --stats-num: #ffffff; /* Cor dos números animados na seção de impacto */
+    --stats-line: #e00303; /* Cor da linha decorativa abaixo do título de impacto */
+    --stats-text: #8a8a8a; /* Cor das legendas abaixo dos números (ex: "Anos de História") */
+
+    /* === VARIÁVEIS SEMÂNTICAS — METODOLOGIAS (light mode) === */
+    --method-card-bg: #ffffff; /* Fundo dos cards de metodologia no light mode */
+    --method-card-title: #1a1a1a; /* Cor do título dos cards de metodologia */
+    --method-card-text: #6b7280; /* Cor da descrição dos cards de metodologia */
+
+    /* === VARIÁVEIS SEMÂNTICAS — NOTÍCIAS E EVENTOS (light mode) === */
+    --news-events-bg: #f0f0f0; /* Fundo da seção de notícias e eventos (cinza para alternar) */
+    --box-title-color: #1a1a1a; /* Cor dos títulos "Últimas Notícias" e "Próximos Eventos" */
+    --box-title-border: #e00303; /* Cor da linha vermelha abaixo dos títulos das colunas */
+
+    --news-title-color: #1a1a1a; /* Cor do título de cada notícia */
+    --event-item-bg: #f7f7f7; /* Fundo de cada card de evento */
+    --event-item-border: #e0e0e0; /* Borda dos cards de evento */
+    --event-text-title: #1a1a1a; /* Cor do título dentro do card de evento */
+
+    /* === VARIÁVEIS SEMÂNTICAS — CONTATO (light mode) === */
+    --contact-info-title: #1a1a1a; /* Cor do título da seção de contato */
+    --contact-form-bg: #ffffff; /* Fundo do formulário de contato */
+    --contact-input-bg: #f5f5f5; /* Fundo dos campos de input */
+    --contact-input-border: #d4d4d4; /* Borda dos campos de input */
+    --contact-input-text: #1a1a1a; /* Cor do texto digitado nos inputs */
+
+    /* === VARIÁVEIS SEMÂNTICAS — FOOTER (light mode) === */
+    --footer-bg: #f0f0f0; /* Fundo do rodapé no light mode (cinza claro) */
+    --footer-border-top: #d4d4d4; /* Linha separadora no topo do rodapé */
+    --footer-bottom-border: #d4d4d4; /* Linha separadora acima do copyright */
+    --footer-text: #6b7280; /* Texto descritivo da marca no rodapé */
+    --footer-title: #1a1a1a; /* Títulos das colunas do rodapé */
+    --footer-link: #6b7280; /* Cor dos links de navegação no rodapé */
+    --footer-icon-border: #d4d4d4; /* Borda dos ícones de redes sociais no rodapé */
+    --footer-icon-color: #1a1a1a; /* Cor dos ícones de redes sociais no rodapé */
 }
 
+/* ========================= */
+/* DARK MODE                 */
+/* ========================= */
+
+body.dark-mode {
+    --bg-main: #0a0a0a; /* Fundo base da página no dark mode (preto quase puro) */
+    --bg-alt: #111111; /* Fundo alternativo das seções com .bg-alt no dark mode */
+    --surface: #1a1a1a; /* Superfícies internas no dark mode */
+    --text-main: #ffffff; /* Cor principal do texto no dark mode */
+    --text-muted: #8a8a8a; /* Texto secundário no dark mode */
+
+    --border: #222222; /* Cor de bordas no dark mode */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); /* Sombra mais intensa no dark mode */
+
+    --white-transparent: #ffffff15; /* Branco semi-transparente (overlay dos botões do carrossel no dark) */
+
+    /* === CARDS (dark mode) === */
+    --card-bg: #141414; /* Fundo dos cards no dark mode */
+    --card-text: #8a8a8a; /* Descrição dos cards no dark mode */
+    --card-title: #ffffff; /* Título dos cards no dark mode (branco) */
+    --card-border: #2a2a2a; /* Borda dos cards no dark mode */
+
+    /* === IMPACTO (dark mode) === */
+    --stats-bg: #0a0a0a; /* Fundo da seção de impacto no dark mode */
+    --stats-title: #ffffff; /* Título da seção de impacto no dark mode */
+    --stats-num: #ffffff; /* Números animados no dark mode */
+    --stats-line: #e00303; /* Linha decorativa vermelha (igual em ambos os modos) */
+    --stats-text: #8a8a8a; /* Legendas dos números no dark mode */
+
+    /* === METODOLOGIAS (dark mode) === */
+    --method-card-bg: #141414; /* Fundo dos cards de metodologia no dark mode */
+    --method-card-title: #e00303; /* Título dos cards de metodologia no dark mode (vermelho) */
+    --method-card-text: #8a8a8a; /* Descrição dos cards de metodologia no dark mode */
+
+    /* === NOTÍCIAS E EVENTOS (dark mode) === */
+    --news-events-bg: #0a0a0a; /* Fundo da seção de notícias e eventos no dark mode */
+    --box-title-color: #ffffff; /* Títulos das colunas no dark mode */
+    --box-title-border: #e00303; /* Linha vermelha abaixo dos títulos (igual em ambos os modos) */
+
+    --news-title-color: #ffffff; /* Título de cada notícia no dark mode */
+    --event-item-bg: #141414; /* Fundo dos cards de evento no dark mode */
+    --event-item-border: #2a2a2a; /* Borda dos cards de evento no dark mode */
+    --event-text-title: #ffffff; /* Título dentro do card de evento no dark mode */
+
+    /* === CONTATO (dark mode) === */
+    --contact-info-title: #ffffff; /* Título da seção de contato no dark mode */
+    --contact-form-bg: #141414; /* Fundo do formulário no dark mode */
+    --contact-input-bg: #0a0a0a; /* Fundo dos inputs no dark mode */
+    --contact-input-border: #2a2a2a; /* Borda dos inputs no dark mode */
+    --contact-input-text: #ffffff; /* Texto digitado nos inputs no dark mode */
+
+    /* === FOOTER (dark mode) === */
+    --footer-bg: #0a0a0a; /* Fundo do rodapé no dark mode */
+    --footer-border-top: #1a1a1a; /* Linha no topo do rodapé no dark mode */
+    --footer-bottom-border: #1a1a1a; /* Linha acima do copyright no dark mode */
+    --footer-text: #9ca3af; /* Texto descritivo da marca no dark mode */
+    --footer-title: #ffffff; /* Títulos das colunas no dark mode */
+    --footer-link: #9ca3af; /* Links de navegação no dark mode */
+    --footer-icon-border: #ffffff20; /* Borda dos ícones sociais no dark mode */
+    --footer-icon-color: #ffffff; /* Cor dos ícones sociais no dark mode */
+}
+
+/* ========================= */
+/* RESET GERAL               */
+/* ========================= */
+
 * {
-    margin: 0; /* Remove margem padrão de todos elementos */
-    padding: 0; /* Remove padding padrão */
-    box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+    margin: 0; /* Remove margem padrão de todos os elementos */
+    padding: 0; /* Remove padding padrão de todos os elementos */
+    box-sizing: border-box; /* Inclui padding e borda no tamanho total do elemento */
 }
 
 html {
-    scroll-behavior: smooth; /* Faz rolagem suave ao clicar em links */
+    scroll-behavior: smooth; /* Ativa rolagem suave ao clicar em links âncora */
 }
 
 body {
-    font-family: 'Titillium Web', sans-serif; /* Fonte principal */
-    background-color: var(--bg-main); /* Cor de fundo */
-    color: var(--text-main); /* Cor do texto */
-    line-height: 1.6; /* Espaçamento entre linhas */
-    transition: background-color 0.5s, color 0.5s; /* Animação ao trocar tema */
+    font-family: 'Titillium Web', sans-serif; /* Fonte principal do site */
+    background-color: var(--bg-main); /* Aplica a cor de fundo conforme o tema ativo */
+    color: var(--text-main); /* Aplica a cor do texto conforme o tema ativo */
+    line-height: 1.6; /* Espaçamento entre linhas para melhor leitura */
+    transition: background-color 0.5s, color 0.5s; /* Animação suave na troca de tema */
 }
 
 a {
-    text-decoration: none; /* Remove sublinhado dos links */
-    color: inherit; /* Herda a cor do elemento pai */
+    text-decoration: none; /* Remove sublinhado padrão dos links */
+    color: inherit; /* Links herdam a cor do elemento pai */
 }
 
 .container {
-    width: 100%; /* Ocupa toda largura */
-    max-width: 1200px; /* Limita largura máxima */
-    margin: 0 auto; /* Centraliza horizontalmente */
-    padding: 0 24px; /* Espaço lateral */
+    width: 100%; /* Ocupa toda a largura disponível */
+    max-width: 1200px; /* Limita a largura máxima do conteúdo */
+    margin: 0 auto; /* Centraliza horizontalmente na página */
+    padding: 0 24px; /* Espaço lateral para não colar nas bordas */
 }
 
 ul {
-    list-style: none; /* Remove bolinhas da lista */
+    list-style: none; /* Remove bolinhas/marcadores das listas */
 }
 
-/*Estilo do cabeçalho*/
+/* ========================= */
+/* MENU / HEADER             */
+/* ========================= */
+
 .header {
-    background-color: var(--bg-main); /* Fundo do header */
-    border-bottom: 1.4px solid var(--border); /* Linha embaixo */
-    position: fixed; /* Fixa no topo */
-    top: 0; /* Encosta no topo */
-    left: 0; /* Encosta à esquerda */
-    right: 0; /* Encosta à direita */
-    height: 80px; /* Altura */
-    z-index: 1000; /* Fica acima dos outros elementos */
+    background-color: var(--bg-alt); /* Fundo do header conforme o tema */
+    border-bottom: 1.4px solid var(--border); /* Linha separadora abaixo do header */
+    position: fixed; /* Fixa o header no topo da tela */
+    top: 0; /* Cola no topo */
+    left: 0; /* Cola à esquerda */
+    right: 0; /* Cola à direita */
+    height: 80px; /* Altura fixa do header */
+    z-index: 1000; /* Fica acima de todos os outros elementos */
 }
 
 main {
-    padding-top: 80px; /* Evita conteúdo escondido atrás do header */
+    padding-top: 80px; /* Empurra o conteúdo para baixo do header fixo */
 }
 
 .header-container {
-    display: flex; /* Usa flexbox */
-    justify-content: space-between; /* Espaço entre itens */
-    align-items: center; /* Centraliza verticalmente */
-    height: 100%; /* Ocupa altura total */
+    display: flex; /* Organiza os itens do header em linha */
+    justify-content: space-between; /* Distribui os itens com espaço entre eles */
+    align-items: center; /* Centraliza verticalmente os itens */
+    height: 100%; /* Ocupa toda a altura do header */
 }
 
 .logo img {
-    height: 230px;   /* Altura da imagem da logo */
-    width: auto;    /* Mantém proporção */
+    height: 230px; /* Altura da imagem da logo */
+    width: auto; /* Mantém a proporção original da logo */
 }
 
 .nav-list {
-    display: flex; /* Itens lado a lado */
-    gap: 30px; /* Espaço entre links */
-    align-items: center;
+    display: flex; /* Organiza os links do menu em linha */
+    gap: 30px; /* Espaço entre cada link do menu */
+    align-items: center; /* Centraliza os links verticalmente */
 }
 
 .nav-link {
-    font-weight: 600; /* Peso da fonte */
-    transition: color 0.5s; /* Animação suave */;
-    transition: 0.3s ease;
+    font-weight: 600; /* Texto semi-negrito nos links */
+    transition: 0.3s ease; /* Animação suave ao passar o mouse */
 }
 
 .nav-link:hover {
-    color: var(--primary); /* Fica vermelho */
-    border-bottom: 2.5px solid var(--primary-hover); /* Linha embaixo */
-    border-radius: 5px; /* Bordas arredondadas */
-    font-weight: 700; /* Fica mais grosso */
-    font-size: 18px; /* Aumenta levemente */
+    color: var(--primary); /* Cor vermelha ao passar o mouse */
+    border-bottom: 2.5px solid var(--primary-hover); /* Linha vermelha abaixo do link */
+    border-radius: 5px; /* Leve arredondamento na linha */
+    font-weight: 700; /* Fica mais negrito no hover */
+    font-size: 18px; /* Aumenta levemente o tamanho no hover */
 }
 
 .header-social {
-    font-size: 20px; /* Tamanho dos ícones */
-    display: flex; /* Flexbox */
-    gap: 5px; /* Espaço entre ícones */
+    font-size: 20px; /* Tamanho dos ícones de redes sociais */
+    display: flex; /* Organiza os ícones em linha */
+    gap: 5px; /* Espaço entre os ícones */
 }
 
 .header-social a {
-    display: flex; /* Centraliza conteúdo */
-    justify-content: center; /* Centro horizontal */
-    align-items: center; /* Centro vertical */
-
-    width: 40px; /* Largura */
-    height: 40px; /* Altura */
-
-    border: 2px solid white; /* Borda branca */
-    border-radius: 50%; /* Forma circular */
-
-    padding: 0; /* Remove deformação */
+    display: flex; /* Centraliza o ícone dentro do círculo */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 40px; /* Largura do círculo */
+    height: 40px; /* Altura do círculo */
+    border: 2px solid var(--text-main); /* Borda do círculo na cor do texto */
+    border-radius: 50%; /* Transforma o elemento em círculo */
+    padding: 0; /* Remove padding para não deformar o círculo */
 }
 
-.header-social a:hover{
-    color: var(--primary); /* Ícone fica vermelho */
-    border-color:  var(--primary); /* Borda fica vermelha */
+.header-social a:hover {
+    color: var(--primary); /* Ícone fica vermelho no hover */
+    border-color: var(--primary); /* Borda fica vermelha no hover */
 }
 
 .header-actions {
-    display: flex; /* Flexbox */
-    align-items: center; /* Centraliza */
-    gap: 15px; /* Espaço entre itens */
+    display: flex; /* Organiza botões em linha */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 15px; /* Espaço entre os botões */
 }
 
 .icon-btn {
     background: none; /* Sem fundo */
     border: none; /* Sem borda */
-    font-size: 1.5rem; /* Tamanho ícone */
-    color: var(--text-main); /* Cor */
-    cursor: pointer; /* Cursor de clique */
-    display: flex; /* Centraliza */
-    transition: color 0.5s; /* Animação */
+    font-size: 1.5rem; /* Tamanho do ícone */
+    color: var(--text-main); /* Cor do ícone conforme o tema */
+    cursor: pointer; /* Cursor de mão ao passar o mouse */
+    display: flex; /* Centraliza o ícone */
+    transition: color 0.5s; /* Animação suave na troca de cor */
 }
 
 .icon-btn:hover {
-    color: var(--primary); /* Fica vermelho */
+    color: var(--primary); /* Ícone fica vermelho no hover */
 }
 
 #menu-btn {
-    display: none; /* Esconde no desktop */
+    display: none; /* Esconde o botão hamburguer no desktop */
 }
 
-/*Botões*/
+/* ========================= */
+/* BOTÕES                    */
+/* ========================= */
+
 .btn {
-    display: inline-block; /* Permite padding e tamanho */
-    padding: 12px 24px; /* Espaçamento interno */
-    font-weight: 600; /* Semi-negrito */
-    border-radius: var(--radius); /* Bordas arredondadas */
-    text-align: center; /* Centraliza texto */
-    cursor: pointer; /* Cursor de clique */
-    border: none; /* Sem borda */
-    transition: all 0.5s ease; /* Anima tudo */
+    display: inline-block; /* Permite definir padding e tamanho */
+    padding: 12px 24px; /* Espaçamento interno do botão */
+    font-weight: 600; /* Texto semi-negrito */
+    border-radius: var(--radius); /* Bordas arredondadas conforme variável */
+    text-align: center; /* Centraliza o texto */
+    cursor: pointer; /* Cursor de mão */
+    border: none; /* Sem borda padrão */
+    transition: all 0.5s ease; /* Animação suave em todas as propriedades */
 }
 
 .btn-primary {
     background-color: var(--primary); /* Fundo vermelho */
-    color: #fff; /* Texto branco */
-    font-family: 'Titillium Web', sans-serif; /* Fonte */
+    color: var(--white); /* Texto branco */
+    font-family: 'Titillium Web', sans-serif; /* Fonte do botão */
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-hover); /* Cor muda no hover */
-    transform: translateY(-2px); /* Sobe levemente */
+    background-color: var(--primary-hover); /* Vermelho mais vivo no hover */
+    transform: translateY(-2px); /* Sobe levemente no hover */
 }
 
-.btn-outline{
-    background-color: transparent;
-    border: 2px solid #cbd5e1;
-    color: var(--text-main);
+.btn-outline {
+    background-color: transparent; /* Fundo transparente */
+    border: 2px solid var(--border-light); /* Borda cinza clara */
+    color: var(--text-main); /* Texto na cor principal do tema */
 }
 
-.btn-outline:hover{
-    border-color: var(--primary);
-    color: var(--primary);
+.btn-outline:hover {
+    border-color: var(--primary); /* Borda fica vermelha no hover */
+    color: var(--primary); /* Texto fica vermelho no hover */
 }
 
-/*BANNER ROTATIVO*/
-.hero{
-    position: relative; /* Base para posicionamento */
-    height: calc(100vh - 80px); /* Altura da tela menos header */
-    min-height: 500px; /* Altura mínima */
-    background-color: #000; /* Fundo preto */
+/* ========================= */
+/* BANNER / CARROSSEL        */
+/* ========================= */
+
+.hero {
+    position: relative; /* Base para posicionamento dos filhos */
+    height: calc(100vh - 80px); /* Altura total da tela menos o header */
+    min-height: 500px; /* Altura mínima para telas muito pequenas */
+    background-color: var(--black); /* Fundo preto enquanto a imagem carrega */
 }
 
-.carousel{
-    position: relative; /* Referência */
+.carousel {
+    position: relative; /* Referência para posicionamento dos slides */
+    width: 100%; /* Ocupa toda a largura */
+    height: 100%; /* Ocupa toda a altura do hero */
+}
+
+.carousel-slide {
+    position: absolute; /* Sobrepõe todos os slides no mesmo lugar */
+    inset: 0; /* Ocupa todo o espaço do carrossel (top/right/bottom/left: 0) */
+    display: flex; /* Centraliza o conteúdo */
+    align-items: center; /* Centraliza verticalmente */
+    visibility: hidden; /* Esconde os slides inativos */
+    transition: opacity 0.8s ease; /* Transição suave de opacidade */
+    opacity: 0; /* Começa invisível */
+}
+
+.carousel-slide.active {
+    opacity: 1; /* Torna o slide ativo visível */
+    visibility: visible; /* Torna o slide ativo presente no layout */
+}
+
+.carousel-bg {
+    position: absolute; /* Posiciona a imagem como fundo */
+    inset: 0; /* Ocupa todo o espaço do slide */
     width: 100%; /* Largura total */
     height: 100%; /* Altura total */
+    object-fit: cover; /* Preenche o espaço sem distorcer a imagem */
+    filter: brightness(0.5); /* Escurece a imagem para o texto ficar legível */
+    z-index: 1; /* Fica atrás do conteúdo */
 }
 
-.carousel-slide{
-    position: absolute; /* Sobrepõe slides */
-    inset: 0; /* Ocupa todo espaço */
-    display: flex; /* Flexbox */
-    align-items: center; /* Centraliza vertical */
-    visibility: hidden; /* Esconde */
-    transition: opacity 0.8s ease; /* Animação */
-    opacity: 0; /* Invisível */
+.carousel-content {
+    position: relative; /* Posiciona sobre a imagem de fundo */
+    z-index: 2; /* Fica na frente da imagem */
+    color: var(--white); /* Texto sempre branco no carrossel */
+    max-width: 800px; /* Limita a largura do bloco de texto */
 }
 
-.carousel-slide.active{
-    opacity: 1; /* Mostra */
-    visibility: visible; /* Torna visível */
+.carousel-content h1 {
+    font-family: 'Titillium Web', sans-serif; /* Fonte do título do slide */
+    font-size: clamp(2.5rem, 5vw, 4.5rem); /* Tamanho responsivo (mínimo 2.5rem, máximo 4.5rem) */
+    font-weight: 900; /* Negrito máximo */
+    line-height: 1.1; /* Altura de linha compacta para títulos grandes */
+    margin-bottom: 20px; /* Espaço abaixo do título */
 }
 
-.carousel-bg{
-    position: absolute; /* Fundo */
-    inset: 0; /* Ocupa tudo */
-    width: 100%; /* Largura */
-    height: 100%; /* Altura */
-    object-fit: cover; /* Preenche sem distorcer */
-    filter : brightness(0.5); /* Escurece imagem */
-    z-index: 1; /* Atrás */
+.carousel-content p {
+    font-family: 'Inter', sans-serif; /* Fonte do parágrafo do slide */
+    font-size: 1.25rem; /* Tamanho do texto descritivo */
+    color: var(--border-light); /* Cinza claro para contrastar com o título branco */
+    margin-bottom: 40px; /* Espaço abaixo do parágrafo antes do botão */
 }
 
-.carousel-content{
-    position: relative; /* Sobre a imagem */
-    z-index: 2; /* Fica na frente */
-    color: #fff; /* Texto branco */
-    max-width: 800px; /* Limita largura */
-}
-
-.carousel-content h1{
-    font-family: 'Titillium Web',sans-serif; /* Fonte */
-    font-size: clamp(2.5rem, 5vw, 4.5rem); /* Responsivo */
-    font-weight: 900; /* Bem forte */
-    line-height: 1.1; /* Altura da linha */
-    margin-bottom: 20px; /* Espaço abaixo */
-}
-
-.carousel-content p{
-    font-family: 'Inter',sans-serif; /* Fonte */
-    font-size: 1.25rem; /* Tamanho */
-    color: #cbd5e1; /* Cor suave */
-    margin-bottom: 40px; /* Espaço */
-}
-
-.carousel-control{
-    position: absolute; /* Posicionamento */
-    top: 50%; /* Meio vertical */
-    z-index: 3; /* Acima de tudo */
-    transform: translateY(-50%); /* Centraliza */
-    width: 50px; /* Largura */
-    height: 50px; /* Altura */
-    border-radius: 50%; /* Redondo */
+.carousel-control {
+    position: absolute; /* Posiciona os botões sobre o carrossel */
+    top: 50%; /* Começa no meio vertical */
+    z-index: 3; /* Fica na frente de tudo */
+    transform: translateY(-50%); /* Centraliza de fato no meio vertical */
+    width: 50px; /* Largura do botão */
+    height: 50px; /* Altura do botão */
+    border-radius: 50%; /* Forma circular */
     border: none; /* Sem borda */
-    background: rgba(255, 255, 255, 0.1); /* Fundo transparente */
-    font-size: 2rem; /* Ícone grande */
-    color: #fff; /* Branco */
-    display: flex; /* Centraliza */
-    align-items: center; /* Centro vertical */
-    justify-content: center; /* Centro horizontal */
-    cursor: pointer; /* Clique */
-    transition: 0.3s; /* Animação */
+    background: var(--white-overlay); /* Fundo semi-transparente */
+    font-size: 2rem; /* Tamanho do ícone de seta */
+    color: var(--white); /* Ícone branco */
+    display: flex; /* Centraliza o ícone */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    cursor: pointer; /* Cursor de mão */
+    transition: 0.3s; /* Animação suave */
 }
 
 .carousel-control.next {
-    right: 20px; /* Direita */
+    right: 20px; /* Posiciona o botão "próximo" à direita */
 }
 
 .carousel-control.prev {
-    left: 20px; /* Esquerda */
+    left: 20px; /* Posiciona o botão "anterior" à esquerda */
 }
 
-.carousel-control:hover{
-    background: var(--primary-hover); /* Fica vermelho */
+.carousel-control:hover {
+    background: var(--primary-hover); /* Fundo vermelho no hover */
 }
 
-.grid{
-    display: grid; /* Ativa o layout em grid */
-    gap: 30px; /* Espaço entre os elementos filhos */
+/* ========================= */
+/* UTILITÁRIOS GERAIS        */
+/* ========================= */
+
+.grid {
+    display: grid; /* Ativa o layout em grade */
+    gap: 30px; /* Espaço padrão entre os itens da grade */
 }
 
-.bg-alt{
-    background-color: var(--bg-alt); /* Define fundo alternativo usando variável */
+.bg-alt {
+    background-color: var(--bg-alt); /* Aplica o fundo alternativo conforme o tema */
 }
 
-.section{
-    padding: 80px 0; /* Espaçamento interno vertical (topo e baixo) */
+.section {
+    padding: 80px 0; /* Espaçamento vertical padrão das seções */
 }
 
-.section-title{
-    text-align: center; /* Centraliza o texto */
-    margin-bottom: 50px; /* Espaço abaixo do título */
+.section-title {
+    text-align: center; /* Centraliza o bloco de título */
+    margin-bottom: 50px; /* Espaço abaixo do título antes do conteúdo */
 }
 
-.section-title h2{
-    font-size: 2.6rem; /* Tamanho grande do título */
-    font-weight: 800; /* Texto bem forte (negrito) */
+.section-title h2 {
+    font-size: 2.6rem; /* Tamanho grande do título da seção */
+    font-weight: 800; /* Negrito forte */
     margin-bottom: 10px; /* Espaço abaixo do título */
 }
 
-.section-title .line{
-    width: 60px; /* Largura da linha decorativa */
-    height: 4px; /* Altura da linha */
-    background-color: var(--primary); /* Cor da linha (vermelho) */
+.section-title .line {
+    width: 60px; /* Largura da linha decorativa vermelha */
+    height: 4px; /* Espessura da linha */
+    background-color: var(--primary); /* Cor vermelha da linha */
     margin: 0 auto 20px auto; /* Centraliza e adiciona espaço abaixo */
-    border-radius: 2px; /* Bordas arredondadas */
+    border-radius: 2px; /* Leve arredondamento nas pontas */
 }
 
-.section-title p{
-    color: var(--text-muted); /* Cor do texto secundário */
-    max-width: 1000px; /* Limita largura do texto */
-    margin: 0 auto; /* Centraliza horizontalmente */
+.section-title p {
+    color: var(--text-muted); /* Cor do subtítulo (texto secundário) */
+    max-width: 1000px; /* Limita a largura do texto descritivo */
+    margin: 0 auto; /* Centraliza o parágrafo */
 }
 
-/*CARTONES*/ /* Seção de cards */
+/* ========================= */
+/* CARDS / PLANOS            */
+/* ========================= */
 
-.grid-cards{
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); 
-    /* Cria colunas responsivas com mínimo de 300px */
+.grid-cards {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cria colunas responsivas com mínimo de 300px */
 }
 
-.card{
-    background: #fff; /* Fundo branco */
+.card {
+    background: var(--card-bg); /* Fundo do card conforme o tema */
     border-radius: var(--radius); /* Bordas arredondadas */
-    padding: 30px; /* Espaçamento interno */
-    transition: all 0.3s ease; /* Animação suave */
+    padding: 30px; /* Espaçamento interno do card */
+    transition: all 0.3s ease; /* Animação suave em todas as propriedades */
+    border: 1px solid var(--card-border); /* Borda do card conforme o tema */
+    box-shadow: var(--shadow); /* Sombra para elevar o card do fundo */
 }
 
-.card:hover{
-    transform: translateY(-8px) scale(1.04); /* Sobe e aumenta levemente */
-    border: 2.2px solid var(--primary); /* Borda vermelha mais grossa */
-    border-color: var(--primary); /* Garante cor da borda */
-    background: #ffffff; /* Mantém fundo branco */
-    box-shadow: 0 15px 35px rgba(216, 25, 0, 0.4); /* Sombra vermelha forte */
+.card:hover {
+    transform: translateY(-8px) scale(1.04); /* Sobe e aumenta levemente no hover */
+    border: 2.2px solid var(--primary); /* Borda vermelha mais grossa no hover */
+    border-color: var(--primary); /* Garante a cor vermelha da borda */
+    background: var(--card-bg); /* Mantém o fundo original */
+    box-shadow: 0 15px 35px var(--shadow-primary-strong); /* Sombra vermelha intensa no hover */
 }
 
-.card-icon-wrapper{
-    display: flex; /* Usa flexbox */
-    text-align: center; /* Centraliza texto */
-    justify-content: center; /* Centraliza horizontal */
-    margin-bottom: 15px; /* Espaço abaixo */
+.card-icon-wrapper {
+    display: flex; /* Centraliza a imagem do plano */
+    text-align: center; /* Centraliza o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente */
+    margin-bottom: 15px; /* Espaço abaixo da imagem */
 }
 
-.card-icon-wrapper img{
-    height: 80px; /* Altura da imagem */
-    width: auto; /* Mantém proporção */
+.card-icon-wrapper img {
+    height: 80px; /* Altura da imagem do plano */
+    width: auto; /* Mantém proporção da imagem */
 }
 
-.card h3{
-    display: inline-block; /* Permite aplicar borda corretamente */
-    border-bottom: 2px solid var(--primary-hover); /* Linha abaixo */
-    border-radius: 2px; /* Borda arredondada */
-    text-align: center; /* Centraliza */
-    color: #e00303; /* Cor vermelha */
-    font-size: 1.5rem; /* Tamanho do título */
-    margin-bottom: 15px; /* Espaço abaixo */
+.card h3 {
+    display: inline-block; /* Permite aplicar a borda abaixo corretamente */
+    border-bottom: 2px solid var(--primary-hover); /* Linha vermelha abaixo do título */
+    border-radius: 2px; /* Leve arredondamento na linha */
+    text-align: center; /* Centraliza o texto */
+    color: var(--card-title); /* Cor do título conforme o tema */
+    font-size: 1.5rem; /* Tamanho do título do card */
+    margin-bottom: 15px; /* Espaço abaixo do título */
 }
 
-.card p{
-    color: var(--text-muted); /* Texto secundário */
-    font-size: 1rem; /* Tamanho padrão */
-    margin-bottom: 30px; /* Espaço abaixo */
+.card p {
+    color: var(--card-text); /* Cor da descrição conforme o tema */
+    font-size: 1rem; /* Tamanho padrão do texto */
+    margin-bottom: 30px; /* Espaço abaixo da descrição */
 }
 
-.card h2{
-    font-size: 1.9rem; /* Tamanho do preço */
-    margin-bottom: 15px; /* Espaço abaixo */
-    color: #e00303; /* Vermelho */
-    text-align: center; /* Centraliza */
+.card h2 {
+    font-size: 1.9rem; /* Tamanho do preço do plano */
+    margin-bottom: 15px; /* Espaço abaixo do preço */
+    color: var(--primary-hover); /* Preço em vermelho */
+    text-align: center; /* Centraliza o preço */
 }
 
-.card a{
-    display: block; /* Faz o link ocupar toda linha */
-    text-align: center; /* Centraliza texto */
+.card a {
+    display: block; /* Faz o link ocupar a linha inteira */
+    text-align: center; /* Centraliza o botão */
 }
 
-.card .btn-outline{
+.card .btn-outline {
     background-color: transparent; /* Fundo transparente */
     border: 2px solid var(--primary); /* Borda vermelha */
     color: var(--primary); /* Texto vermelho */
 }
 
-.card .btn-outline:hover{
-    background-color: var(--primary); /* Fundo vermelho */
-    color: #fff; /* Texto branco */
-    transform: translateY(-3px); /* Sobe levemente */
+.card .btn-outline:hover {
+    background-color: var(--primary); /* Fundo vermelho no hover */
+    color: var(--white); /* Texto branco no hover */
+    transform: translateY(-3px); /* Sobe levemente no hover */
 }
 
-/*NÚMEROS*/ /* Seção de estatísticas */
+/* ========================= */
+/* IMPACTO / NÚMEROS         */
+/* ========================= */
 
-.stats-section{
-    background: #ffffff; /* Fundo branco */
-    padding: 100px 0; /* Espaçamento vertical */
+.stats-section {
+    background: var(--stats-bg); /* Fundo da seção de impacto conforme o tema */
+    padding: 100px 0; /* Espaçamento vertical maior para dar destaque */
+    transition: background-color 0.5s; /* Animação suave na troca de tema */
 }
 
-.stats-section .section-title{
-    text-align: center; /* Centraliza */
-    margin-bottom: 70px; /* Espaço abaixo */
+.stats-section .section-title {
+    text-align: center; /* Centraliza o título */
+    margin-bottom: 70px; /* Espaço maior abaixo do título */
 }
 
-.stats-section .section-title h2{
-    color: #202839; /* Cor escura */
-    font-size: 3rem; /* Tamanho grande */
+.stats-section .section-title h2 {
+    color: var(--stats-title); /* Cor do título conforme o tema */
+    font-size: 3rem; /* Título maior que o padrão */
     font-weight: 800; /* Negrito forte */
 }
 
-.stats-section .line{
-    width: 80px; /* Largura maior */
-    height: 4px; /* Altura */
-    background: #dc2626; /* Vermelho */
-    margin: 20px auto 0; /* Centraliza */
-    border-radius: 999px; /* Borda arredondada */
+.stats-section .line {
+    width: 80px; /* Linha decorativa um pouco mais larga */
+    height: 4px; /* Espessura da linha */
+    background: var(--stats-line); /* Cor vermelha da linha */
+    margin: 20px auto 0; /* Centraliza com espaço acima */
+    border-radius: 999px; /* Totalmente arredondada */
 }
 
-.grid-stats{
-    display: grid; /* Grid */
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); 
-    /* Responsivo */
-    gap: 40px; /* Espaço */
-    text-align: center; /* Centraliza texto */
+.grid-stats {
+    display: grid; /* Grade para os boxes de estatísticas */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Colunas responsivas */
+    gap: 40px; /* Espaço entre os boxes */
+    text-align: center; /* Centraliza o conteúdo */
 }
 
-.stat-box{
-    display: flex; /* Flexbox */
-    flex-direction: column; /* Coluna */
-    align-items: center; /* Centraliza horizontal */
-    justify-content: center; /* Centraliza vertical */
+.stat-box {
+    display: flex; /* Flexbox para organizar ícone, número e texto */
+    flex-direction: column; /* Empilha verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
 }
 
-.stat-box i{
+.stat-box i {
     font-size: 3.5rem; /* Ícone grande */
-    color: #dc2626; /* Vermelho */
-    margin-bottom: 20px; /* Espaço abaixo */
+    color: var(--primary-hover); /* Ícone sempre vermelho */
+    margin-bottom: 20px; /* Espaço abaixo do ícone */
 }
 
-.stat-box .stat-num{
-    display: block; /* Ocupa linha */
-    font-size: 4.5rem; /* Número grande */
-    font-weight: 800; /* Negrito */
-    line-height: 1; /* Altura da linha */
-    color: #202839; /* Cor escura */
-    margin-bottom: 10px; /* Espaço abaixo */
+.stat-box .stat-num {
+    display: block; /* Ocupa a linha inteira */
+    font-size: 4.5rem; /* Número bem grande */
+    font-weight: 800; /* Negrito máximo */
+    line-height: 1; /* Altura de linha compacta */
+    color: var(--stats-num); /* Cor do número conforme o tema */
+    margin-bottom: 10px; /* Espaço abaixo do número */
 }
 
-.stat-box p{
-    color: #6b7280; /* Cinza */
-    text-transform: uppercase; /* Texto maiúsculo */
-    letter-spacing: 2px; /* Espaçamento letras */
-    font-size: 0.9rem; /* Tamanho pequeno */
+.stat-box p {
+    color: var(--stats-text); /* Cor da legenda conforme o tema */
+    text-transform: uppercase; /* Texto em maiúsculas */
+    letter-spacing: 2px; /* Espaçamento entre letras */
+    font-size: 0.9rem; /* Tamanho menor */
     font-weight: 500; /* Peso médio */
 }
 
-/*METODOLOGIAS*/ /* Seção de métodos */
+/* ========================= */
+/* METODOLOGIAS              */
+/* ========================= */
 
-.grid-methods{
-    display: grid; /* Grid */
-    grid-template-columns: repeat(4,1fr); /* 4 colunas */
-    gap: 30px; /* Espaço */
-    margin-top: 50px; /* Espaço acima */
+.grid-methods {
+    display: grid; /* Grade para os cards de metodologia */
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas iguais no desktop */
+    gap: 30px; /* Espaço entre os cards */
+    margin-top: 50px; /* Espaço acima da grade */
 }
 
-.method-card{
-    background: #ffffff; /* Fundo branco */
-    border-radius: var(--radius); /* Borda arredondada */
-    padding: 35px 30px; /* Espaçamento */
-    text-align: center; /* Centraliza */
-    transition: all 0.3s ease; /* Animação */
+.method-card {
+    background: var(--method-card-bg); /* Fundo do card conforme o tema */
+    border-radius: var(--radius); /* Bordas arredondadas */
+    padding: 35px 30px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o conteúdo */
+    transition: all 0.3s ease; /* Animação suave */
+    box-shadow: var(--shadow); /* Sombra para elevar o card */
 }
 
-.method-card:hover{
-    transform: translateY(-8px) scale(1.03); /* Efeito hover */
-    border: 2px solid var(--primary); /* Borda vermelha */
-    box-shadow: 0 15px 35px rgba(216, 25, 0, 0.25); /* Sombra */
+.method-card:hover {
+    transform: translateY(-8px) scale(1.03); /* Sobe e aumenta no hover */
+    border: 2px solid var(--primary); /* Borda vermelha no hover */
+    box-shadow: 0 15px 35px var(--shadow-primary-mid); /* Sombra vermelha no hover */
 }
 
-.method-icon{
-    margin-bottom: 18px; /* Espaço abaixo */
+.method-icon {
+    margin-bottom: 18px; /* Espaço abaixo do ícone */
 }
 
-.method-icon i{
+.method-icon i {
     font-size: 3.2rem; /* Ícone grande */
-    color: var(--primary); /* Vermelho */
+    color: var(--primary); /* Ícone sempre vermelho */
 }
 
-.method-card h3{
-    display: inline-block; /* Permite borda */
-    border-bottom: 2px solid var(--primary-hover); /* Linha */
-    border-radius: 2px; /* Arredondado */
-    text-align: center; /* Centraliza */
-    color: #e00303; /* Vermelho */
-    font-size: 1.5rem; /* Tamanho */
-    font-weight: 700; /* Negrito */
-    font-family: 'Titillium Web', sans-serif; /* Fonte */
-    margin-bottom: 15px; /* Espaço */
-}
-
-.method-card p{
-    color: var(--text-muted); /* Texto secundário */
-    line-height: 1.7; /* Espaçamento entre linhas */
-    font-size: 0.96rem; /* Tamanho */
-}
-
-/* NOTÍCIAS E EVENTOS */
-
-#noticias-eventos{
-    background-color: #fff; /* Fundo branco */
-}
-
-.dual-layout{
-    display: grid; /* Grid */
-    grid-template-columns: 1.5fr 1fr; /* Duas colunas com proporção */
-    gap: 60px; /* Espaço entre colunas */
-    align-items: start; /* Alinha no topo */
-}
-
-.box-title{
+.method-card h3 {
+    display: inline-block; /* Permite a borda abaixo funcionar corretamente */
+    border-bottom: 2px solid var(--primary-hover); /* Linha vermelha abaixo do título */
+    border-radius: 2px; /* Leve arredondamento */
+    text-align: center; /* Centraliza o texto */
+    color: var(--method-card-title); /* Cor do título conforme o tema */
     font-size: 1.5rem; /* Tamanho do título */
     font-weight: 700; /* Negrito */
-    border-bottom: 2px solid red; /* Linha vermelha */
-    padding-bottom: 15px; /* Espaço abaixo */
-    margin-bottom: 30px; /* Espaço abaixo */
-    color: #202839; /* Cor escura */
+    font-family: 'Titillium Web', sans-serif; /* Fonte do título */
+    margin-bottom: 15px; /* Espaço abaixo do título */
 }
 
-/* NOTÍCIAS */
+.method-card p {
+    color: var(--method-card-text); /* Cor da descrição conforme o tema */
+    line-height: 1.7; /* Espaçamento entre linhas para facilitar leitura */
+    font-size: 0.96rem; /* Tamanho levemente menor */
+}
 
-.news-item{
-    display: flex; /* Usa flexbox para alinhar imagem e texto lado a lado */
+/* ========================= */
+/* NEWS / NOTÍCIAS           */
+/* ========================= */
+
+#noticias-eventos {
+    background-color: var(--news-events-bg); /* Fundo da seção conforme o tema */
+    transition: background-color 0.5s; /* Animação suave na troca de tema */
+}
+
+.dual-layout {
+    display: grid; /* Grade de duas colunas para notícias e eventos */
+    grid-template-columns: 1.5fr 1fr; /* Notícias mais larga que eventos */
+    gap: 60px; /* Espaço entre as colunas */
+    align-items: start; /* Alinha os itens no topo */
+}
+
+.box-title {
+    font-size: 1.5rem; /* Tamanho do título da coluna */
+    font-weight: 700; /* Negrito */
+    border-bottom: 2px solid var(--box-title-border); /* Linha vermelha abaixo do título */
+    padding-bottom: 15px; /* Espaço interno abaixo do texto */
+    margin-bottom: 30px; /* Espaço abaixo da linha */
+    color: var(--box-title-color); /* Cor do título conforme o tema */
+}
+
+.news-item {
+    display: flex; /* Alinha imagem e texto lado a lado */
     gap: 20px; /* Espaço entre imagem e texto */
-    margin-bottom: 30px; /* Espaço abaixo de cada notícia */
+    margin-bottom: 30px; /* Espaço entre as notícias */
     transition: 0.3s; /* Animação suave */
 }
 
-.news-item:hover{
-    transform: translateX(10px); /* Move para direita ao passar o mouse */
+.news-item:hover {
+    transform: translateX(10px); /* Move para a direita no hover */
 }
 
-.news-img{
-    width: 160px; /* Largura fixa da imagem */
+.news-img {
+    width: 160px; /* Largura fixa da imagem da notícia */
     height: 110px; /* Altura fixa da imagem */
-    object-fit: cover; /* Corta a imagem sem distorcer */
+    object-fit: cover; /* Preenche sem distorcer */
     border-radius: var(--radius); /* Bordas arredondadas */
 }
 
-.news-text h4{
-    font-size: 1.1rem; /* Tamanho do título */
-    margin-bottom: 8px; /* Espaço abaixo */
-    color: #202839; /* título escuro */
+.news-text h4 {
+    font-size: 1.1rem; /* Tamanho do título da notícia */
+    margin-bottom: 8px; /* Espaço abaixo do título */
+    color: var(--news-title-color); /* Cor do título conforme o tema */
 }
 
-.news-date{
-    display: block; /* Faz ocupar linha inteira */
+.news-date {
+    display: block; /* Ocupa a linha inteira */
     font-size: 0.8rem; /* Tamanho pequeno */
-    color: var(--primary); /* Cor vermelha */
+    color: var(--primary); /* Data em vermelho */
     font-weight: 700; /* Negrito */
-    text-transform: uppercase; /* Texto em maiúsculo */
-    margin-bottom: 10px; /* Espaço abaixo */
+    text-transform: uppercase; /* Texto em maiúsculas */
+    margin-bottom: 10px; /* Espaço abaixo da data */
 }
 
-.news-text p{
-    color: var(--text-muted); /* Texto cinza */
+.news-text p {
+    color: var(--text-muted); /* Texto descritivo em cinza */
     font-size: 0.95rem; /* Tamanho levemente menor */
 }
 
-/* EVENTOS */
+/* ========================= */
+/* EVENTOS                   */
+/* ========================= */
 
-.event-item{
-    display: flex; /* Flexbox para alinhar conteúdo */
-    gap: 20px; /* Espaço entre elementos */
-    margin-bottom: 25px; /* Espaço abaixo */
-    align-items: center; /* Alinha verticalmente */
-
-    background-color: #fff; /* Fundo branco */
-    border: 1px solid #e5e7eb; /* Borda cinza clara */
+.event-item {
+    display: flex; /* Alinha calendário e texto lado a lado */
+    gap: 20px; /* Espaço entre o calendário e o texto */
+    margin-bottom: 25px; /* Espaço entre os eventos */
+    align-items: center; /* Centraliza verticalmente */
+    background-color: var(--event-item-bg); /* Fundo do card conforme o tema */
+    border: 1px solid var(--event-item-border); /* Borda do card conforme o tema */
     border-radius: var(--radius); /* Bordas arredondadas */
     padding: 20px; /* Espaçamento interno */
-    transition: 0.3s; /* Animação */
+    transition: 0.3s; /* Animação suave */
+    box-shadow: var(--shadow); /* Sombra para elevar o card */
 }
 
-.event-item:hover{
-    transform: translateY(-5px); /* Sobe levemente */
-    border-color: var(--primary); /* Borda fica vermelha */
-    box-shadow: var(--shadow); /* Adiciona sombra */
+.event-item:hover {
+    transform: translateY(-5px); /* Sobe levemente no hover */
+    border-color: var(--primary); /* Borda vermelha no hover */
+    box-shadow: var(--shadow); /* Mantém a sombra */
 }
 
-.event-calendar{
-    width: 80px; /* Largura fixa */
-    height: 80px; /* Altura fixa */
+.event-calendar {
+    width: 80px; /* Largura do bloco de data */
+    height: 80px; /* Altura do bloco de data */
     background-color: var(--primary); /* Fundo vermelho */
-    color: #fff; /* Texto branco */
+    color: var(--white); /* Texto branco */
     border-radius: var(--radius); /* Bordas arredondadas */
-    display: flex; /* Flexbox */
-    flex-direction: column; /* Organiza em coluna */
-    align-items: center; /* Centraliza horizontal */
-    justify-content: center; /* Centraliza vertical */
-    flex-shrink: 0; /* Impede de encolher */
+    display: flex; /* Centraliza o conteúdo */
+    flex-direction: column; /* Empilha dia e mês verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    flex-shrink: 0; /* Impede que o bloco encolha */
 }
 
-.event-calendar .day{
-    font-size: 1.8rem; /* Número grande (dia) */
-    font-weight: 800; /* Negrito */
-    line-height: 1; /* Altura da linha */
+.event-calendar .day {
+    font-size: 1.8rem; /* Número do dia bem grande */
+    font-weight: 800; /* Negrito máximo */
+    line-height: 1; /* Altura de linha compacta */
 }
 
-.event-calendar .month{
-    font-size: 0.85rem; /* Tamanho menor */
+.event-calendar .month {
+    font-size: 0.85rem; /* Mês em tamanho menor */
     font-weight: 600; /* Semi-negrito */
-    letter-spacing: 1px; /* Espaço entre letras */
+    letter-spacing: 1px; /* Leve espaçamento entre letras */
 }
 
-.event-text h4{
-    font-size: 1rem; /* Tamanho do título */
-    margin-bottom: 8px; /* Espaço abaixo */
-    color: #202839; /* título escuro */
+.event-text h4 {
+    font-size: 1rem; /* Tamanho do título do evento */
+    margin-bottom: 8px; /* Espaço abaixo do título */
+    color: var(--event-text-title); /* Cor do título conforme o tema */
 }
 
-.event-meta{
-    display: flex; /* Flexbox */
-    gap: 15px; /* Espaço entre itens */
+.event-meta {
+    display: flex; /* Alinha local e horário em linha */
+    gap: 15px; /* Espaço entre local e horário */
     flex-wrap: wrap; /* Quebra linha se necessário */
-    color: var(--text-muted); /* Texto cinza */
+    color: var(--text-muted); /* Cor cinza do meta */
     font-size: 0.9rem; /* Tamanho menor */
 }
 
-.event-meta i{
-    color: var(--primary); /* Ícones vermelhos */
-    margin-right: 5px; /* Espaço à direita */
+.event-meta i {
+    color: var(--primary); /* Ícones de local e horário em vermelho */
+    margin-right: 5px; /* Espaço à direita do ícone */
 }
 
-/* RESPONSIVO */
+/* ========================= */
+/* CONTATO                   */
+/* ========================= */
 
-@media(max-width: 768px){
-
-    .dual-layout{
-        grid-template-columns: 1fr; /* Vira uma coluna */
-    }
-
-    .news-item{
-        flex-direction: column; /* Empilha imagem e texto */
-    }
-
-    .news-img{
-        width: 100%; /* Ocupa toda largura */
-        height: 220px; /* Altura maior */
-    }
-
-}
-
-/* =========================
-   CONTATO (ESTILO MODERNO)
-========================= */
-
-.contact-layout{
-    display: grid; /* Layout em grid */
-    grid-template-columns: 1fr 1fr; /* Duas colunas */
-    gap: 60px; /* Espaço entre colunas */
+.contact-layout {
+    display: grid; /* Grade de duas colunas */
+    grid-template-columns: 1fr 1fr; /* Colunas iguais */
+    gap: 60px; /* Espaço entre informações e formulário */
     align-items: flex-start; /* Alinha no topo */
 }
 
-.contact-info h2{
+.contact-info h2 {
     font-size: 2.4rem; /* Título grande */
     margin-bottom: 20px; /* Espaço abaixo */
+    color: var(--contact-info-title); /* Cor do título conforme o tema */
 }
 
-.contact-info p{
-    color: var(--text-muted); /* Texto cinza */
+.contact-info p {
+    color: var(--text-muted); /* Texto descritivo em cinza */
     margin-bottom: 30px; /* Espaço abaixo */
-    font-size: 1.05rem; /* Tamanho levemente maior */
+    font-size: 1.05rem; /* Levemente maior que o padrão */
 }
 
-.contact-list{
-    display: flex; /* Flexbox */
-    flex-direction: column; /* Coluna */
-    gap: 20px; /* Espaço entre itens */
+.contact-list {
+    display: flex; /* Organiza os itens de contato */
+    flex-direction: column; /* Empilha verticalmente */
+    gap: 20px; /* Espaço entre cada item */
 }
 
-.contact-list li{
-    display: flex; /* Flexbox */
-    align-items: center; /* Alinha verticalmente */
+.contact-list li {
+    display: flex; /* Alinha ícone e texto */
+    align-items: center; /* Centraliza verticalmente */
     gap: 15px; /* Espaço entre ícone e texto */
-    font-size: 1.05rem; /* Tamanho */
+    font-size: 1.05rem; /* Tamanho do texto */
 }
 
-.contact-list i{
+.contact-list i {
     font-size: 1.8rem; /* Ícone grande */
-    color: var(--primary); /* Cor vermelha */
+    color: var(--primary); /* Ícones em vermelho */
 }
 
 /* FORM */
 
-.contact-form{
-    background-color: var(--surface); /* Fundo do formulário */
-    border: 1px solid var(--border); /* Borda */
+.contact-form {
+    background-color: var(--contact-form-bg); /* Fundo do formulário conforme o tema */
+    border: 1px solid var(--border); /* Borda do formulário */
     border-radius: var(--radius); /* Bordas arredondadas */
-    padding: 40px; /* Espaçamento interno */
-    box-shadow: var(--shadow); /* Sombra */
-    border-top: 4px solid var(--primary); /* Linha vermelha no topo */
+    padding: 40px; /* Espaçamento interno generoso */
+    box-shadow: var(--shadow); /* Sombra para elevar o formulário */
+    border-top: 4px solid var(--primary); /* Linha vermelha de destaque no topo */
+    transition: background-color 0.5s; /* Animação suave na troca de tema */
 }
 
 /* INPUTS */
 
-.input-group{
-    margin-bottom: 20px; /* Espaço entre campos */
+.input-group {
+    margin-bottom: 20px; /* Espaço entre os campos do formulário */
 }
 
-.input-group label{
-    display: block; /* Ocupa linha inteira */
-    margin-bottom: 6px; /* Espaço abaixo */
+.input-group label {
+    display: block; /* Ocupa a linha inteira */
+    margin-bottom: 6px; /* Espaço abaixo do label */
     font-weight: 500; /* Peso médio */
 }
 
 .input-group input,
 .input-group textarea,
-.input-group select{
-    width: 100%; /* Ocupa toda largura */
+.input-group select {
+    width: 100%; /* Ocupa toda a largura disponível */
     padding: 14px; /* Espaçamento interno */
-    border: 1px solid var(--border); /* Borda */
+    border: 1px solid var(--contact-input-border); /* Borda conforme o tema */
     border-radius: var(--radius); /* Bordas arredondadas */
-    background-color: var(--bg-main); /* Fundo escuro */
-    color: var(--text-main); /* Texto branco */
-    font-size: 0.95rem; /* Tamanho */
-    font-family: inherit; /* Usa mesma fonte do site */
-    transition: 0.3s; /* Animação */
+    background-color: var(--contact-input-bg); /* Fundo conforme o tema */
+    color: var(--contact-input-text); /* Cor do texto conforme o tema */
+    font-size: 0.95rem; /* Tamanho do texto */
+    font-family: inherit; /* Herda a fonte do site */
+    transition: 0.3s; /* Animação suave */
 }
 
 .input-group input:focus,
 .input-group textarea:focus,
-.input-group select:focus{
-    outline: none; /* Remove contorno padrão */
-    border-color: var(--primary); /* Borda vermelha */
-    box-shadow: 0 0 0 3px rgba(216, 25, 0, 0.2); /* Glow vermelho */
+.input-group select:focus {
+    outline: none; /* Remove o contorno padrão do navegador */
+    border-color: var(--primary); /* Borda vermelha ao focar */
+    box-shadow: 0 0 0 3px var(--shadow-primary-glow); /* Glow vermelho ao redor do input */
 }
 
-.w-full{
-    width: 100%; /* Ocupa largura total */
+.w-full {
+    width: 100%; /* Faz o botão ocupar toda a largura do formulário */
 }
 
-/* =========================
-   FOOTER ELITE ZONE
-========================= */ /* Título da seção do rodapé */
+/* ========================= */
+/* FOOTER                    */
+/* ========================= */
 
-/* Container principal do footer */
-.footer{
-    background-color: #021518; /* Cor de fundo escura */
+.footer {
+    background-color: var(--footer-bg); /* Fundo do rodapé conforme o tema */
     padding-top: 100px; /* Espaço interno no topo */
-    border-top: 1px solid var(--surface); /* Linha superior */
+    border-top: 1px solid var(--footer-border-top); /* Linha separadora no topo */
+    transition: background-color 0.5s; /* Animação suave na troca de tema */
 }
 
-/* GRID */
-/* Estrutura em grid do rodapé */
-.footer-grid{
-    display: grid; /* Ativa grid layout */
-    grid-template-columns: 2fr 1fr 1fr 1fr; /* Define colunas (logo maior + 3 menores) */
-    gap: 50px; /* Espaço entre colunas */
-    margin-bottom: 60px; /* Espaço inferior */
-    align-items: flex-start; /* Alinha itens no topo */
+.footer-grid {
+    display: grid; /* Grade para as colunas do rodapé */
+    grid-template-columns: 2fr 1fr 1fr 1fr; /* Logo maior + 3 colunas iguais */
+    gap: 50px; /* Espaço entre as colunas */
+    margin-bottom: 60px; /* Espaço abaixo antes do copyright */
+    align-items: flex-start; /* Alinha as colunas no topo */
 }
 
-/* LOGO */
-/* Estilização da imagem da logo */
-.brand-col img{
-    margin-left: 40px; /* Espaço à esquerda */
-    height: 50px; /* Altura da logo */
+.brand-col img {
+    margin-left: 40px; /* Espaço à esquerda da logo */
+    height: 50px; /* Altura da logo no rodapé */
     width: auto; /* Mantém proporção */
-    display: block; /* Remove espaços indesejados */
+    display: block; /* Remove espaço extra abaixo da imagem */
 }
 
-/* TEXTO */
-/* Texto descritivo da marca */
-.brand-col p{
-    color: #9ca3af; /* Cor cinza suave */
-    line-height: 1.5;      /* Espaçamento entre linhas */
-    max-width: 350px; /* Limita largura */
-    margin-top: 20px;     /* Espaço acima */
+.brand-col p {
+    color: var(--footer-text); /* Cor do texto descritivo conforme o tema */
+    line-height: 1.5; /* Espaçamento entre linhas */
+    max-width: 350px; /* Limita a largura do texto */
+    margin-top: 20px; /* Espaço acima do texto */
 }
 
-/* TÍTULOS */
-/* Títulos das colunas do footer */
-.footer h4{
-    font-size: 1.2rem; /* Tamanho do texto */
+.footer h4 {
+    font-size: 1.2rem; /* Tamanho dos títulos das colunas */
     font-weight: 700; /* Negrito */
-    margin-bottom: 20px; /* Espaço abaixo */
-    color: #fff; /* Cor branca */
-    position: relative; /* Permite pseudo-elemento */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+    color: var(--footer-title); /* Cor do título conforme o tema */
+    position: relative; /* Base para o pseudo-elemento da linha */
 }
 
-/* Linha decorativa abaixo do título */
-.footer h4::after{
-    content: ""; /* Cria elemento vazio */
+.footer h4::after {
+    content: ""; /* Cria um elemento vazio para a linha decorativa */
     width: 40px; /* Largura da linha */
-    height: 3px; /* Altura da linha */
-    background: var(--primary); /* Cor vermelha */
-    display: block; /* Ocupa linha */
-    margin-top: 8px; /* Espaço acima */
-    border-radius: 2px; /* Bordas arredondadas */
+    height: 3px; /* Espessura da linha */
+    background: var(--primary); /* Linha vermelha */
+    display: block; /* Ocupa a linha inteira */
+    margin-top: 8px; /* Espaço acima da linha */
+    border-radius: 2px; /* Leve arredondamento */
 }
 
-/* LINKS */
-/* Lista de links */
-.link-col ul{
-    display: flex; /* Flexbox */
-    flex-direction: column; /* Um abaixo do outro */
-    gap: 12px; /* Espaço entre links */
+.link-col ul {
+    display: flex; /* Organiza os links */
+    flex-direction: column; /* Empilha verticalmente */
+    gap: 12px; /* Espaço entre os links */
 }
 
-/* Estilo dos links */
-.link-col a{
-    color: #9ca3af; /* Cor padrão */
-    transition: 0.3s; /* Animação */
-    font-size: 0.95rem; /* Tamanho */
+.link-col a {
+    color: var(--footer-link); /* Cor dos links conforme o tema */
+    transition: 0.3s; /* Animação suave */
+    font-size: 0.95rem; /* Tamanho dos links */
 }
 
-/* Hover dos links */
-.link-col a:hover{
-    color: #e00303; /* Fica vermelho */
-    border-bottom: 2.5px solid var(--primary-hover); /* Linha embaixo */
-    border-radius: 5px; /* Borda arredondada */
-    transform: translateX(5px); /* Move para direita */
+.link-col a:hover {
+    color: var(--primary-hover); /* Cor vermelha no hover */
+    border-bottom: 2.5px solid var(--primary-hover); /* Linha vermelha no hover */
+    border-radius: 5px; /* Leve arredondamento */
+    transform: translateX(5px); /* Move para a direita no hover */
 }
 
-/* REDES SOCIAIS */
-/* Container dos ícones */
-.social-links{
-    display: flex; /* Flexbox */
-    gap: 15px; /* Espaço entre ícones */
-    margin-top: 10px; /* Espaço acima */
+.social-links {
+    display: flex; /* Organiza os ícones em linha */
+    gap: 15px; /* Espaço entre os ícones */
+    margin-top: 10px; /* Espaço acima dos ícones */
 }
 
-/* Estilo dos ícones */
-.social-links a{
-    width: 50px; /* Largura */
-    height: 50px; /* Altura */
-    border: 2px solid #ffffff20; /* Borda transparente */
+.social-links a {
+    width: 50px; /* Largura do círculo */
+    height: 50px; /* Altura do círculo */
+    border: 2px solid var(--footer-icon-border); /* Borda conforme o tema */
     border-radius: 50%; /* Forma circular */
     font-size: 1.4rem; /* Tamanho do ícone */
-    display: flex; /* Centralização */
-    align-items: center; /* Centro vertical */
-    justify-content: center; /* Centro horizontal */
-    color: #fff; /* Cor branca */
-    transition: 0.3s; /* Animação */
+    display: flex; /* Centraliza o ícone */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    color: var(--footer-icon-color); /* Cor do ícone conforme o tema */
+    transition: 0.3s; /* Animação suave */
 }
 
-/* Hover dos ícones */
-.social-links a:hover{
-    border-color: var(--primary); /* Borda vermelha */
-    color: var(--primary); /* Ícone vermelho */
-    transform: translateY(-5px) scale(1.1); /* Sobe e aumenta */
-    box-shadow: 0 10px 25px rgba(216, 25, 0, 0.3); /* Sombra vermelha */
+.social-links a:hover {
+    border-color: var(--primary); /* Borda vermelha no hover */
+    color: var(--primary); /* Ícone vermelho no hover */
+    transform: translateY(-5px) scale(1.1); /* Sobe e aumenta no hover */
+    box-shadow: 0 10px 25px var(--shadow-primary-mid); /* Sombra vermelha no hover */
 }
 
-/* LINHA FINAL */
-/* Parte inferior do footer */
-.footer-bottom{
-    text-align: center; /* Centraliza texto */
+.footer-bottom {
+    text-align: center; /* Centraliza o texto do copyright */
     padding: 25px 0; /* Espaçamento vertical */
-    border-top: 1.5px solid var(--surface); /* Linha superior */
-    color: #6b7280; /* Cor cinza */
+    border-top: 1.5px solid var(--footer-bottom-border); /* Linha separadora acima */
+    color: var(--text-muted); /* Cor cinza */
     font-size: 0.85rem; /* Tamanho pequeno */
 }
 
+/* ========================= */
+/* RESPONSIVIDADE — TABLET   */
+/* ========================= */
 
-/* =========================
-   RESPONSIVIDADE COMPLETA
-========================= */ /* Seção de ajustes responsivos */
-
-/* TABLET */
-@media (max-width: 992px){ /* Para telas até 992px */
+@media (max-width: 992px) {
 
     .dual-layout,
-    .contact-layout{
-        grid-template-columns: 1fr; /* Uma coluna só */
+    .contact-layout {
+        grid-template-columns: 1fr; /* Empilha as colunas em uma só */
     }
 
-    /* METODOLOGIAS */
-    .grid-methods{
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    .grid-methods {
+        grid-template-columns: repeat(2, 1fr); /* Reduz para 2 colunas no tablet */
     }
 
-    /* FOOTER */
-    .footer-grid{
-        grid-template-columns: 1fr 1fr; /* 2 colunas */
+    .footer-grid {
+        grid-template-columns: 1fr 1fr; /* Reduz para 2 colunas no tablet */
     }
 }
 
+/* ========================= */
+/* RESPONSIVIDADE — MOBILE   */
+/* ========================= */
 
-/* MOBILE */
-@media(max-width : 768px) { /* Para telas menores que 768px */
+@media(max-width: 768px) {
 
     #menu-btn {
-        display: flex; /* Mostra botão do menu */
+        display: flex; /* Mostra o botão hamburguer no mobile */
     }
 
     .d-none-mobile {
-        display: none; /* Esconde elementos no mobile */
+        display: none; /* Esconde o botão "Matricule-se" no mobile */
     }
 
-    .nav{
-        position: fixed; /* Menu fixo */
-        top: 80px; /* Abaixo do header */
-        right: -100%; /* Escondido fora da tela */
-        width: 100%; /* Largura total */
-        height: calc(100vh - 80px); /* Altura total menos header */
-        background-color: var(--bg-main); /* Fundo */
-        transition: right 0.4s ease; /* Animação */
-        padding-top: 40px; /* Espaço interno */
-        border-top: 1px solid var(--border); /* Linha superior */
+    .nav {
+        position: fixed; /* Menu fixo na tela */
+        top: 80px; /* Começa abaixo do header */
+        right: -100%; /* Começa fora da tela à direita */
+        width: 100%; /* Ocupa toda a largura */
+        height: calc(100vh - 80px); /* Altura total menos o header */
+        background-color: var(--bg-main); /* Fundo conforme o tema */
+        transition: right 0.4s ease; /* Animação de entrada/saída */
+        padding-top: 40px; /* Espaço interno no topo */
+        border-top: 1px solid var(--border); /* Linha separadora no topo */
     }
 
-    .nav-list{
-        flex-direction: column; /* Itens em coluna */
-        align-items: center; /* Centraliza */
-        gap: 40px; /* Espaço entre itens */
+    .nav-list {
+        flex-direction: column; /* Empilha os links verticalmente */
+        align-items: center; /* Centraliza os links */
+        gap: 40px; /* Espaço maior entre os links */
     }
 
-    .nav.active{
-        right: 0; /* Mostra menu */
+    .nav.active {
+        right: 0; /* Move o menu para dentro da tela quando ativo */
     }
 
-    /* METODOLOGIAS */
-    .grid-methods{
-        grid-template-columns: 1fr; /* 1 coluna */
-        gap: 20px; /* Espaço */
+    .grid-methods {
+        grid-template-columns: 1fr; /* Uma coluna só no mobile */
+        gap: 20px; /* Espaço menor entre os cards */
     }
 
-    /* FOOTER */
-    .footer-grid{
-        grid-template-columns: 1fr; /* 1 coluna */
-        text-align: center; /* Centraliza conteúdo */
+    .footer-grid {
+        grid-template-columns: 1fr; /* Uma coluna só no mobile */
+        text-align: center; /* Centraliza o conteúdo */
     }
 
-    .footer h4{
-        text-align: center; /* Centraliza títulos */
+    .footer h4 {
+        text-align: center; /* Centraliza os títulos das colunas */
     }
 
-    .footer h4::after{
-        margin: 8px auto 0 auto; /* Centraliza linha vermelha */
+    .footer h4::after {
+        margin: 8px auto 0 auto; /* Centraliza a linha decorativa */
     }
 
-    .social-links{
-        justify-content: center; /* Centraliza ícones */
+    .social-links {
+        justify-content: center; /* Centraliza os ícones sociais */
     }
 
-    .brand-col img{
-        margin: 0 auto; /* Centraliza logo */
+    .brand-col img {
+        margin: 0 auto; /* Centraliza a logo */
     }
 
-    .brand-col p{
-        margin: 15px auto 0 auto; /* Centraliza texto */
+    .brand-col p {
+        margin: 15px auto 0 auto; /* Centraliza o texto descritivo */
+    }
+
+    .news-item {
+        flex-direction: column; /* Empilha imagem e texto no mobile */
+    }
+
+    .news-img {
+        width: 100%; /* Imagem ocupa toda a largura */
+        height: 220px; /* Altura maior no mobile */
     }
 }
